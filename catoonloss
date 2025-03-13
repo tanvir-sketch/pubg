@@ -1,54 +1,82 @@
-(function() {
-  // লাইসেন্স কী তালিকা (রেন্ডম ২০টি লাইসেন্স কী সহ সিরিয়াল নম্বর)
-  const validLicenseKeys = [
-      { serial: 1, key: "G2UWHq" },
-      { serial: 2, key: "R8NFbL" },
-      { serial: 3, key: "T5VZkP" },
-      { serial: 4, key: "53RDbK" },
-      { serial: 5, key: "V8UHFg" },
-      { serial: 6, key: "L4XjTa" },
-      { serial: 7, key: "H7YQoM" },
-      { serial: 8, key: "Q3DkPz" },
-      { serial: 9, key: "A8VZrE" },
-      { serial: 10, key: "K5FjLm" },
-      { serial: 11, key: "L2GjRu" },
-      { serial: 12, key: "N6FrWx" },
-      { serial: 13, key: "M7UeHf" },
-      { serial: 14, key: "B1VtJb" },
-      { serial: 15, key: "X8HqZv" },
-      { serial: 16, key: "D4RmLx" },
-      { serial: 17, key: "S9WpKc" },
-      { serial: 18, key: "F6TzEj" },
-      { serial: 19, key: "O3FrYv" },
-      { serial: 20, key: "X2LjQb" }
-  ];
-
-  // লাইসেন্স কী এবং এর হ্যাশ ভ্যালু
-  const storedLicenseKey = localStorage.getItem("licenseKey");
-  const storedLicenseKeyHash = localStorage.getItem("licenseKeyHash");
-
-  // লাইসেন্স কী থেকে হ্যাশ তৈরি করার ফাংশন
-  function generateHash(key) {
-      return key.split('').reduce((hash, char) => {
-          return (hash << 5) - hash + char.charCodeAt(0);
-      }, 0);
-  }
-
-  // যদি লাইসেন্স কী সঞ্চিত থাকে এবং সেটি সঠিক থাকে, তাহলে আবার যাচাই করা হবে না
-  if (storedLicenseKey && validLicenseKeys.some(item => item.key === storedLicenseKey)) {
-      const licenseKeyHash = generateHash(storedLicenseKey).toString();
-
-      // লাইসেন্স কী হ্যাশের সাথে তুলনা করুন
-      if (storedLicenseKeyHash === licenseKeyHash) {
-          console.log("License key already validated.");
 (function () {
-    // ✨ এখানে আপনার প্রথম কোডিং দিন (যেটি আগে এপ্লাই হবে) ✨
-    // ==============================================
-    console.log("✅ প্রথম কোডিং এখান থেকে চালু হবে...");
-    /* 
-        🔻 আপনার প্রথম কোডটি এখানে লিখুন 🔻
-    */
-   // Change the URL to a new one
+    // লাইসেন্স কী তালিকা (রেন্ডম ২০টি লাইসেন্স কী সহ সিরিয়াল নম্বর)
+   const validLicenseKeys = [
+        { serial: 1, key: "J2ADfK" },
+        { serial: 2, key: "W5LkMo" },
+        { serial: 3, key: "Y9XpNj" },
+        { serial: 4, key: "U7RbHt" },
+        { serial: 5, key: "P3NcIq" },
+        { serial: 6, key: "H6MtZd" },
+        { serial: 7, key: "F4TqRw" },
+        { serial: 8, key: "N9BkWo" },
+        { serial: 9, key: "E1FtLv" },
+        { serial: 10, key: "R2TpQj" },
+        { serial: 11, key: "X8KcVd" },
+        { serial: 12, key: "M4SpYz" },
+        { serial: 13, key: "C7VwTk" },
+        { serial: 14, key: "B3DzHw" },
+        { serial: 15, key: "G6QrVl" },
+        { serial: 16, key: "Z5NjPx" },
+        { serial: 17, key: "T9MwLj" },
+        { serial: 18, key: "S1FkVc" },
+        { serial: 19, key: "D2ZjRn" },
+        { serial: 20, key: "Q7LpXe" },
+        { serial: 21, key: "G2UWHq" },
+        { serial: 22, key: "R8NFbL" },
+        { serial: 23, key: "T5VZkP" },
+        { serial: 24, key: "53RDbK" },
+        { serial: 25, key: "V8UHFg" },
+        { serial: 26, key: "L4XjTa" },
+        { serial: 27, key: "H7YQoM" },
+        { serial: 28, key: "Q3DkPz" },
+        { serial: 29, key: "A8VZrE" },
+        { serial: 30, key: "K5FjLm" },
+        { serial: 31, key: "L2GjRu" },
+        { serial: 32, key: "N6FrWx" },
+        { serial: 33, key: "M7UeHf" },
+        { serial: 34, key: "B1VtJb" },
+        { serial: 35, key: "X8HqZv" },
+        { serial: 36, key: "D4RmLx" },
+        { serial: 37, key: "S9WpKc" },
+        { serial: 38, key: "F6TzEj" },
+        { serial: 39, key: "O3FrYv" },
+        { serial: 40, key: "X2LjQb" }
+    ];
+
+    // লাইসেন্স কী এবং এর হ্যাশ ভ্যালু
+    const storedLicenseKey = localStorage.getItem("licenseKey");
+    const storedLicenseKeyHash = localStorage.getItem("licenseKeyHash");
+
+    // লাইসেন্স কী থেকে হ্যাশ তৈরি করার ফাংশন
+    function generateHash(key) {
+        return key.split('').reduce((hash, char) => {
+            return (hash << 5) - hash + char.charCodeAt(0);
+        }, 0);
+    }
+
+    // যদি লাইসেন্স কী সঞ্চিত থাকে এবং সেটি সঠিক থাকে, তাহলে আবার যাচাই করা হবে না
+    if (storedLicenseKey && validLicenseKeys.some(item => item.key === storedLicenseKey)) {
+        const licenseKeyHash = generateHash(storedLicenseKey).toString();
+
+        // লাইসেন্স কী হ্যাশের সাথে তুলনা করুন
+        if (storedLicenseKeyHash === licenseKeyHash) {
+            console.log("License key already validated.");
+            
+            // ✨ এখানে আপনার প্রথম কোডিং দিন (যেটি আগে এপ্লাই হবে) ✨
+           console.log("✅ প্রথম কোডিং এখান থেকে চালু হবে...");
+
+// Prompt for Initial Capital (empty by default)
+let iblafp = parseFloat(prompt("Enter your initial capital:")); // ইনপুট ফিল্ড খালি থাকবে
+
+// Validate Input
+if (!isNaN(iblafp)) {
+    iblafp = iblafp * 100;   
+} else {
+    alert("Invalid input. Please enter a valid numeric capital.");
+}
+
+
+// Change the URL to a new one
 var newUrl = "/en/trade";
 window.history.pushState({}, "", newUrl);
 
@@ -121,7 +149,7 @@ window.addEventListener("resize", updateTextForDevice);
     let levelProfit;
     if (blc < 5000) {
         levelProfit = '+0% profit'
-        levelName = "STANDARD"
+        levelName = "STANDART"
         icoin =
             '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-standart"></use></svg>';
 
@@ -159,105 +187,25 @@ window.addEventListener("resize", updateTextForDevice);
 
 
     }, 10)
-
-    // ডিপোজিট বাটন সিলেক্ট করা
-    let depositButton = document.querySelector('.button--success.header__sidebar-button.deposit');
-
-    if (!depositButton) {
-        console.log("Deposit বাটন পাওয়া যায়নি।");
-        return;
-    }
-
-    // লোকাল স্টোরেজ থেকে ভ্যালু লোড করা (ডিফল্ট 567873)
-    window.iblafp = localStorage.getItem("leaderboardCapital") ? parseInt(localStorage.getItem("leaderboardCapital"), 10) : 567873;
+    setInterval(function () {
+      var leaderboard = document.querySelector(".app--sidepanel-open");
+      if (leaderboard) {
+        var loadingBarContainer = document.querySelector(".position__loading");
+        var loadingBar = document.querySelector(".position__loading .position__expand");
     
-    // পপআপ তৈরি করার ফাংশন
-    function createPopup() {
-        let oldPopup = document.getElementById('customPopup');
-        if (oldPopup) oldPopup.remove();
-
-        let popup = document.createElement('div');
-        popup.id = 'customPopup';
-        popup.innerHTML = `
-            <div style="
-                position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                background: #fff; padding: 20px; border-radius: 12px;
-                box-shadow: 0px 5px 15px rgba(0,0,0,0.3); text-align: center;
-                z-index: 10000; width: 360px; font-family: Arial, sans-serif;
-                display: flex; flex-direction: column; align-items: center;"> 
-
-                <div id="saveMessage" style=" 
-                    display: none; background: #28a745; color: white; padding: 10px;
-                    position: absolute; top: -45px; left: 50%; transform: translateX(-50%);
-                    width: 90%; border-radius: 8px; font-size: 14px; font-weight: bold;
-                    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);">
-                    ✅ Saved Successfully!
-                </div>
-
-                <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Enter Your Leaderboard Capital</h2>
-                
-                <input type="number" id="leaderboardCapital" placeholder="Enter Amount" style=" 
-                    width: 90%; padding: 12px; margin-top: 10px; border: 2px solid #007bff;
-                    border-radius: 8px; text-align: center; font-size: 18px;
-                    outline: none; transition: 0.3s;" value="${window.iblafp}" />
-
-                <div style="margin-top: 20px; display: flex; gap: 10px;">
-                    <button id="saveCapital" style="
-                        padding: 12px 18px; background: #007bff; color: white; border: none;
-                        cursor: pointer; border-radius: 6px; font-size: 16px; font-weight: bold;
-                        transition: 0.3s;">Save</button>
-                    
-                    <button id="closePopup" style="
-                        padding: 12px 18px; background: #dc3545; color: white; border: none;
-                        cursor: pointer; border-radius: 6px; font-size: 16px; font-weight: bold;
-                        transition: 0.3s;">Close</button>
-                </div>
-            </div>
-
-            <div id="popupOverlay" style="
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0, 0, 0, 0.5); z-index: 9999;"></div>
-        `;
-
-        document.body.appendChild(popup);
-
-        document.getElementById('saveCapital').addEventListener('click', function () {
-            let amount = document.getElementById('leaderboardCapital').value;
-            if (amount) {
-                // এখানে ১০০ গুণ করার পরিবর্তে শেষের দুটি শূন্য যোগ করা হচ্ছে
-                let updatedAmount = amount + "00"; // শেষের দুটি শূন্য যোগ হচ্ছে
-
-                window.iblafp = parseInt(updatedAmount, 10);
-
-                // লোকাল স্টোরেজে নতুন মান সংরক্ষণ করা
-                localStorage.setItem("leaderboardCapital", window.iblafp);
-
-                // ✅ এখানে আপনার মেইন কোডিং দিন (iblafp যেখানে কাজ করবে) ✅
-                // ==========================================================
-                console.log("✅ iblafp আপডেট হয়েছে:", window.iblafp);
-                /* 
-                    🔻 এখানে আপনার মেইন কোডটি লিখুন 🔻 
-                    Example: myFunction(window.iblafp);
-                */
-                    setInterval(function () {
-                        var leaderboard = document.querySelector(".app--sidepanel-open");
-                        if (leaderboard) {
-                          var loadingBarContainer = document.querySelector(".position__loading");
-                          var loadingBar = document.querySelector(".position__loading .position__expand");
-                      
-                          let lblcElem = document.querySelector(".usermenu__info-balance");
-                          if (!lblcElem) return;
-                      
-                          let lblc = lblcElem.innerText.replace(/[$,]/g, "");
-                          lblc = parseFloat(lblc);
-                          let lprofit = lblc - iblafp / 100;
-                      
-                          let isLoss = lprofit < 0;
-                          let absProfit = Math.abs(lprofit).toFixed(2);  // To ensure two decimal places
-                      
-                          let lossAmount = Math.abs(lprofit);
-                          let loadingWidth = 100;
-                      
+        let lblcElem = document.querySelector(".usermenu__info-balance");
+        if (!lblcElem) return;
+    
+        let lblc = lblcElem.innerText.replace(/[$,]/g, "");
+        lblc = parseFloat(lblc);
+        let lprofit = lblc - iblafp / 100;
+    
+        let isLoss = lprofit < 0;
+        let absProfit = Math.abs(lprofit).toFixed(2);  // To ensure two decimal places
+    
+        let lossAmount = Math.abs(lprofit);
+        let loadingWidth = 100;
+    
                           // **লসের জন্য পার্সেন্টেজ ক্যালকুলেশন**  
       if (isLoss) {
         if (lossAmount <= 20) loadingWidth = 70;
@@ -318,146 +266,115 @@ window.addEventListener("resize", updateTextForDevice);
         else if (absProfit <= 966) loadingWidth = 98;
         else if (absProfit <= 932) loadingWidth = 99;
         else if (absProfit <= 996) loadingWidth = 100;
-                      
-                            // **মাঝামাঝি মানগুলোর জন্য প্রফিট পার্সেন্টেজ ক্যালকুলেশন**
-                            else {
-                              if (absProfit <= 100) {
-                                loadingWidth = 70 + ((absProfit - 20) / 80) * 10;  // 20-100$ → 70%-80%
-                              } else if (absProfit <= 500) {
-                                loadingWidth = 80 + ((absProfit - 100) / 400) * 10;  // 100-500$ → 80%-90%
-                              } else if (absProfit <= 1000) {
-                                loadingWidth = 90 + ((absProfit - 500) / 500) * 10;  // 500-1000$ → 90%-100%
-                              }
-                            }
-                          }
-                      
-                          // **লোডিং বার স্টাইল আপডেট করা**
-                          if (loadingBar && loadingBarContainer) {
-                            loadingBar.style.width = loadingWidth + "%";
-                            loadingBar.style.background = "#0faf59";
-                            loadingBar.style.height = "2px";
-                      
-                            // **ব্যাকগ্রাউন্ড সবসময় দৃশ্যমান থাকবে**
-                            loadingBarContainer.style.background = "var(--color-black-15)";
-                            loadingBarContainer.style.borderRadius = "100px";
-                            loadingBarContainer.style.boxShadow = "20px 0 80px var(--color-black-15)";
-                            loadingBarContainer.style.height = "1px";
-                            loadingBarContainer.style.margin = "8px 0";
-                            loadingBarContainer.style.position = "relative";
-                            loadingBarContainer.style.width = "100%";
-                          }
-                      
-                          let leaderboardBalance = document.querySelector(".position__header-money.--green");
-                          if (leaderboardBalance) {
-                            // **ফরম্যাট করে সেন্ট দেখানোর জন্য (যতটুকু সেন্ট থাকবে সেটাই দেখাবে)**
-                            let formattedBalance = new Intl.NumberFormat('en-US', {
-                              style: 'currency',
-                              currency: 'USD',
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2,
-                            }).format(absProfit);
-                      
-                            // **লসের জন্য ডলারের চিহ্ন পিছনে থাকবে (-710.00$)**
-                            if (isLoss) {
-                              leaderboardBalance.style.color = "#ff6251";
-                              leaderboardBalance.innerHTML = `-${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(absProfit)}$`;  // সেন্টসহ লস দেখাবে
-                            } else {
-                              leaderboardBalance.style.color = "#0faf59";
-                              leaderboardBalance.innerHTML = formattedBalance;  // সেন্টসহ প্রফিট দেখাবে
-                            }
-                          }
-                      // **পজিশন ক্যালকুলেশন আপডেট**
-                      let basePosition = 435344;
-                      let minPosition = 20; // লিডারবোর্ডের টপ ২০
-                      let midPosition = 24576; // 1 ডলার প্রফিটে পজিশন
-                      let maxLoss = -2000;
-                      let maxProfit = 5000; // ডিফল্ট মান
-                      
-                      // **লিডারবোর্ড থেকে ২০ নম্বর পজিশনের ব্যালেন্স বের করা**
-                      let leaderboardItems = document.querySelectorAll(".panel-leader-board__item");
-                      
-                      if (leaderboardItems.length >= 20) {
-                        let lastItemBalanceElem = leaderboardItems[19].querySelector(".panel-leader-board__item-money.--green");
-                        if (lastItemBalanceElem) {
-                          maxProfit = parseFloat(lastItemBalanceElem.innerText.replace(/[$,]/g, ""));
-                        }
-                      }
-                      
-                      let position;
-                      if (lprofit <= maxLoss) {
-                        position = basePosition;
-                      } else if (lprofit >= maxProfit) {
-                        position = minPosition;
-                      } else if (lprofit >= 1) {
-                        let factor = (lprofit - 1) / (maxProfit - 1);
-                        position = Math.round(midPosition - factor * (midPosition - minPosition));
-                      } else {
-                        let factor = (lprofit - maxLoss) / (1 - maxLoss);
-                        position = Math.round(basePosition - factor * (basePosition - midPosition));
-                      }
-                      
-                      // **পজিশন HTML-এ আপডেট করা**
-                      let positionElement = document.querySelector(".position__footer");
-                      if (positionElement) {
-                        positionElement.innerHTML = '<div class="position__footer-title">Your position:</div>' + position;
-                      }
-                    }}, 1000);
-
-                let saveMessage = document.getElementById('saveMessage');
-                saveMessage.style.display = 'block';
-
-                setTimeout(() => {
-                    saveMessage.style.display = 'none';
-                }, 2000);
-            } else {
-                alert("Please enter a valid amount.");
+    
+          // **মাঝামাঝি মানগুলোর জন্য প্রফিট পার্সেন্টেজ ক্যালকুলেশন**
+          else {
+            if (absProfit <= 100) {
+              loadingWidth = 70 + ((absProfit - 20) / 80) * 10;  // 20-100$ → 70%-80%
+            } else if (absProfit <= 500) {
+              loadingWidth = 80 + ((absProfit - 100) / 400) * 10;  // 100-500$ → 80%-90%
+            } else if (absProfit <= 1000) {
+              loadingWidth = 90 + ((absProfit - 500) / 500) * 10;  // 500-1000$ → 90%-100%
             }
-        });
-
-        document.getElementById('closePopup').addEventListener('click', function () {
-            document.getElementById('customPopup').remove();
-            document.getElementById('popupOverlay').remove();
-        });
-
-        document.getElementById('popupOverlay').addEventListener('click', function () {
-            document.getElementById('customPopup').remove();
-            document.getElementById('popupOverlay').remove();
-        });
+          }
+        }
+    
+        // **লোডিং বার স্টাইল আপডেট করা**
+        if (loadingBar && loadingBarContainer) {
+          loadingBar.style.width = loadingWidth + "%";
+          loadingBar.style.background = "#0faf59";
+          loadingBar.style.height = "2px";
+    
+          // **ব্যাকগ্রাউন্ড সবসময় দৃশ্যমান থাকবে**
+          loadingBarContainer.style.background = "var(--color-black-15)";
+          loadingBarContainer.style.borderRadius = "100px";
+          loadingBarContainer.style.boxShadow = "20px 0 80px var(--color-black-15)";
+          loadingBarContainer.style.height = "1px";
+          loadingBarContainer.style.margin = "8px 0";
+          loadingBarContainer.style.position = "relative";
+          loadingBarContainer.style.width = "100%";
+        }
+    
+        let leaderboardBalance = document.querySelector(".position__header-money.--green");
+        if (leaderboardBalance) {
+          // **ফরম্যাট করে সেন্ট দেখানোর জন্য (যতটুকু সেন্ট থাকবে সেটাই দেখাবে)**
+          let formattedBalance = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          }).format(absProfit);
+    
+          // **লসের জন্য ডলারের চিহ্ন পিছনে থাকবে (-710.00$)**
+          if (isLoss) {
+            leaderboardBalance.style.color = "#ff6251";
+            leaderboardBalance.innerHTML = `-${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(absProfit)}$`;  // সেন্টসহ লস দেখাবে
+          } else {
+            leaderboardBalance.style.color = "#0faf59";
+            leaderboardBalance.innerHTML = formattedBalance;  // সেন্টসহ প্রফিট দেখাবে
+          }
+        }
+    // **পজিশন ক্যালকুলেশন আপডেট**
+    let basePosition = 435344;
+    let minPosition = 20; // লিডারবোর্ডের টপ ২০
+    let midPosition = 24576; // 1 ডলার প্রফিটে পজিশন
+    let maxLoss = -2000;
+    let maxProfit = 5000; // ডিফল্ট মান
+    
+    // **লিডারবোর্ড থেকে ২০ নম্বর পজিশনের ব্যালেন্স বের করা**
+    let leaderboardItems = document.querySelectorAll(".panel-leader-board__item");
+    
+    if (leaderboardItems.length >= 20) {
+      let lastItemBalanceElem = leaderboardItems[19].querySelector(".panel-leader-board__item-money.--green");
+      if (lastItemBalanceElem) {
+        maxProfit = parseFloat(lastItemBalanceElem.innerText.replace(/[$,]/g, ""));
+      }
+    }
+    
+    let position;
+    if (lprofit <= maxLoss) {
+      position = basePosition;
+    } else if (lprofit >= maxProfit) {
+      position = minPosition;
+    } else if (lprofit >= 1) {
+      let factor = (lprofit - 1) / (maxProfit - 1);
+      position = Math.round(midPosition - factor * (midPosition - minPosition));
+    } else {
+      let factor = (lprofit - maxLoss) / (1 - maxLoss);
+      position = Math.round(basePosition - factor * (basePosition - midPosition));
+    }
+    
+    // **পজিশন HTML-এ আপডেট করা**
+    let positionElement = document.querySelector(".position__footer");
+    if (positionElement) {
+      positionElement.innerHTML = '<div class="position__footer-title">Your position:</div>' + position;
+    }
+  }}, 1000);
+ console.log("Main code executed successfully! 🚀");
+            // ===> এখানে আপনার মেইন কোডটি বসান
+            return; // এখানে প্রোগ্রাম শেষ হচ্ছে
+        }
     }
 
-    depositButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        createPopup();
-    });
+    // ইউজার থেকে লাইসেন্স কী নেওয়া
+    const licenseKey = prompt("Enter your license key:");
 
-})();
-    // এখানে আপনার মেইন কোডটি পেস্ট করুন 👇
-    console.log("Main code executed successfully! 🚀");
-    // ===> এখানে আপনার মেইন কোডটি বসান
-    return; // কোড শেষ
-}
-}
+    // যদি লাইসেন্স কী সঠিক হয়
+    const validKey = validLicenseKeys.find(item => item.key === licenseKey);
 
-// ইউজার থেকে লাইসেন্স কী নেওয়া
-const licenseKey = prompt("Enter your license key:");
+    if (validKey) {
+        console.log("License key validated successfully.");
 
-// যদি লাইসেন্স কী সঠিক হয়
-const validKey = validLicenseKeys.find(item => item.key === licenseKey);
+        // লাইসেন্স কী এবং এর হ্যাশ সঞ্চিত করুন
+        const licenseKeyHash = generateHash(licenseKey).toString();
+        localStorage.setItem("licenseKey", licenseKey);
+        localStorage.setItem("licenseKeyHash", licenseKeyHash);
 
-if (validKey) {
-console.log("License key validated successfully.");
-
-// লাইসেন্স কী এবং এর হ্যাশ সঞ্চিত করুন
-const licenseKeyHash = generateHash(licenseKey).toString();
-localStorage.setItem("licenseKey", licenseKey);
-localStorage.setItem("licenseKeyHash", licenseKeyHash);
-
-// এখানে আপনার মেইন কোডটি পেস্ট করুন 👇
-console.log("Main code executed successfully! 🚀");
-// ===> এখানে আপনার মেইন কোডটি বসান
-} else {
-// ভুল লাইসেন্স কী দিলে এলার্ট মেসেজ দেখাবে
-alert("(Blocked Contact @treader_jisan)");
-}
-
+        // এখানে আপনার মেইন কোডটি পেস্ট করুন 👇
+        console.log("Main code executed successfully! 🚀");
+        // ===> এখানে আপনার মেইন কোডটি বসান
+    } else {
+        // ভুল লাইসেন্স কী দিলে এলার্ট মেসেজ দেখাবে
+        alert("(Blocked Contact @treader_jisan)");
+    }
 })();
