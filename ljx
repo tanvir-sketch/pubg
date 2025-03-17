@@ -1,11 +1,1191 @@
 // এই কোডটি GitHub লিংকে রাখা হবে
-const passwordFromLink = 'Liza';  // লিংকে থাকা পাসওয়ার্ড
+const passwordFromLink = 'Lia';  // লিংকে থাকা পাসওয়ার্ড
 
-if (passwordFromLink === 'Liza') {
+if (passwordFromLink === 'Lia') {
   console.log('Access granted! The secret code will run now.');
+(function() {
+    // লাইসেন্স কী লিস্ট
+    const validLicenseKeys = [
+        "A3NJFm922", 
+        "A3NJFm456", 
+        "A3NJFm789", 
+        "A3NJFm012", 
+        "A3NJFm345", 
+        "A3NJFm678", 
+        "A3NJFm901", 
+        "A3NJFm234", 
+        "A3NJFm598", 
+        "A3NJFm890", 
+        "A3NJFm1234", 
+        "A3NJFm5678", 
+        "A3NJFm9101", 
+        "A3NJFm2345", 
+        "A3NJFm6789", 
+        "A3NJFm3456", 
+        "A3NJFm7890", 
+        "A3NJFm1122", 
+        "A3NJFm3344", 
+        "A3NJFm5566", 
+        "A3NJFm7788", 
+        "A3NJFm9900", 
+        "A3NJFm2233", 
+        "A3NJFm4455", 
+        "A3NJFm6677", 
+        "A3NJFm8899", 
+        "A3NJFm1001", 
+        "A3NJFm3002", 
+        "A3NJFm5003", 
+        "A3NJFm7004", 
+        "A3NJFm9005", 
+        "A3NJFm1106", 
+        "A3NJFm2207", 
+        "A3NJFm3308", 
+        "A3NJFm4409", 
+        "A3NJFm5501", 
+        "A3NJFm6602", 
+        "A3NJFm7703", 
+        "A3NJFm8804", 
+        "A3NJFm9906", 
+        "A3NJFm1110", 
+        "A3NJFm2221", 
+        "A3NJFm3332", 
+        "A3NJFm4443", 
+        "A3NJFm5554", 
+        "A3NJFm6665", 
+        "A3NJFm7776", 
+        "A3NJFm8887", 
+        "A3NJFm9998", 
+        "A3NJFm1010", 
+        "A3NJFm2121", 
+        "A3NJFm3232", 
+        "A3NJFm4343", 
+        "A3NJFm5454", 
+        "A3NJFm6565", 
+        "A3NJFm7676", 
+        "A3NJFm8787", 
+        "A3NJFm9899", 
+        "A3NJFm12349", 
+        "A3NJFm67899"
+    ];    
+    // পপআপ তৈরি
+    let popup = document.createElement("div");
+    popup.innerHTML = `
+        <div id="settingsPopup" style="
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg,rgb(255, 174, 0), #FFFAF0); padding: 25px; border-radius: 10px; box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+            z-index: 1000; width: 350px; text-align: center; font-family: Arial, sans-serif;
+            opacity: 0; transition: transform 0.3s ease-out, opacity 0.3s ease-out;">
 
-  // এখানে আপনার আসল কোড থাকবে যা আপনি চালাতে চান
-  alert('Code is running!');
+            <h2 style="margin-top: 10px; color: #222;">👑 Owner Only Jisan X</h2>
+            <a href="https://t.me/treaderjisanx" target="_blank" style="display: inline-block; margin-bottom: 15px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="40px" style="cursor: pointer;">
+            </a>
+            <label style="display: block; margin-bottom: 10px; color: #444;">Leaderboard Name:
+                <input type="text" id="lname" placeholder="Enter Name" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
+            </label>
+            <label style="display: block; margin-bottom: 10px; color: #444;">Leaderboard Balance:
+                <input type="number" id="iblafp" placeholder="Enter Balance" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
+            </label>
+            <label style="display: block; margin-bottom: 10px; color: #444;">Demo Balance:
+                <input type="text" id="demo" value="$20,000.00" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
+            </label>
+            <label style="display: block; margin-bottom: 10px; color: #444;">Mid Position:
+                <input type="number" id="midPosition" value="1690" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
+            </label>
+            <label style="display: block; margin-bottom: 10px; color: #444;">Maximum Position:
+                <input type="number" id="basePosition" value="789345" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
+            </label>
+            <label style="display: block; margin-bottom: 10px; color: #444;">Country Flag:
+                <select id="countryFlagSelect" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
+<option value="bd">🇧🇩 Bangladesh</option>
+<option value="in">🇮🇳 India</option>
+<option value="pk">🇵🇰 Pakistan</option>
+<option value="af">🇦🇫 Afghanistan</option>
+<option value="ax">🇦🇽 Åland Islands</option>
+<option value="al">🇦🇱 Albania</option>
+<option value="dz">🇩🇿 Algeria</option>
+<option value="as">🇦🇸 American Samoa</option>
+<option value="ao">🇦🇴 Angola</option>
+<option value="ai">🇦🇮 Anguilla</option>
+<option value="aq">🇦🇶 Antarctica</option>
+<option value="ag">🇦🇬 Antigua & Barbuda</option>
+<option value="ar">🇦🇷 Argentina</option>
+<option value="am">🇦🇲 Armenia</option>
+<option value="aw">🇦🇼 Aruba</option>
+<option value="az">🇦🇿 Azerbaijan</option>
+<option value="bs">🇧🇸 Bahamas</option>
+<option value="bh">🇧🇭 Bahrain</option>
+<option value="bb">🇧🇧 Barbados</option>
+<option value="by">🇧🇾 Belarus</option>
+<option value="bz">🇧🇿 Belize</option>
+<option value="bj">🇧🇯 Benin</option>
+<option value="bm">🇧🇲 Bermuda</option>
+<option value="bt">🇧🇹 Bhutan</option>
+<option value="bo">🇧🇴 Bolivia</option>
+<option value="ba">🇧🇦 Bosnia & Herzegovina</option>
+<option value="bw">🇧🇼 Botswana</option>
+<option value="bv">🇧🇻 Bouvet Island</option>
+<option value="br">🇧🇷 Brazil</option>
+<option value="io">🇮🇴 British Indian Ocean Territory</option>
+<option value="bn">🇧🇳 Brunei</option>
+<option value="bf">🇧🇫 Burkina Faso</option>
+<option value="bi">🇧🇮 Burundi</option>
+<option value="kh">🇰🇭 Cambodia</option>
+<option value="cm">🇨🇲 Cameroon</option>
+<option value="cv">🇨🇻 Cape Verde</option>
+<option value="ky">🇰🇾 Cayman Islands</option>
+<option value="cf">🇨🇫 Central African Republic</option>
+<option value="td">🇹🇩 Chad</option>
+<option value="cl">🇨🇱 Chile</option>
+<option value="cn">🇨🇳 China</option>
+<option value="cx">🇨🇽 Christmas Island</option>
+<option value="cc">🇨🇨 Cocos (Keeling) Islands</option>
+<option value="co">🇨🇴 Colombia</option>
+<option value="km">🇰🇲 Comoros</option>
+<option value="cg">🇨🇬 Congo - Brazzaville</option>
+<option value="cd">🇨🇩 Congo - Kinshasa</option>
+<option value="ck">🇨🇰 Cook Islands</option>
+<option value="cr">🇨🇷 Costa Rica</option>
+<option value="ci">🇨🇮 Côte d Ivoire</option>
+<option value="cu">🇨🇺 Cuba</option>
+<option value="cw">🇨🇼 Curaçao</option>
+<option value="dj">🇩🇯 Djibouti</option>
+<option value="dm">🇩🇲 Dominica</option>
+<option value="do">🇩🇴 Dominican Republic</option>
+<option value="ec">🇪🇨 Ecuador</option>
+<option value="eg">🇪🇬 Egypt</option>
+<option value="sv">🇸🇻 El Salvador</option>
+<option value="gq">🇬🇶 Equatorial Guinea</option>
+<option value="er">🇪🇷 Eritrea</option>
+<option value="sz">🇸🇿 Eswatini</option>
+<option value="et">🇪🇹 Ethiopia</option>
+<option value="fk">🇫🇰 Falkland Islands</option>
+<option value="fo">🇫🇴 Faroe Islands</option>
+<option value="fj">🇫🇯 Fiji</option>
+<option value="gf">🇬🇫 French Guiana</option>
+<option value="pf">🇵🇫 French Polynesia</option>
+<option value="tf">🇹🇫 French Southern Territories</option>
+<option value="ga">🇬🇦 Gabon</option>
+<option value="gm">🇬🇲 Gambia</option>
+<option value="ge">🇬🇪 Georgia</option>
+<option value="gh">🇬🇭 Ghana</option>
+<option value="gi">🇬🇮 Gibraltar</option>
+<option value="gl">🇬🇱 Greenland</option>
+<option value="gd">🇬🇩 Grenada</option>
+<option value="gp">🇬🇵 Guadeloupe</option>
+<option value="gt">🇬🇹 Guatemala</option>
+<option value="gg">🇬🇬 Guernsey</option>
+<option value="gn">🇬🇳 Guinea</option>
+<option value="gw">🇬🇼 Guinea-Bissau</option>
+<option value="gy">🇬🇾 Guyana</option>
+<option value="ht">🇭🇹 Haiti</option>
+<option value="hm">🇭🇲 Heard & McDonald Islands</option>
+<option value="hn">🇭🇳 Honduras</option>
+<option value="is">🇮🇸 Iceland</option>
+<option value="id">🇮🇩 Indonesia</option>
+<option value="ir">🇮🇷 Iran</option>
+<option value="iq">🇮🇶 Iraq</option>
+<option value="im">🇮🇲 Isle of Man</option>
+<option value="jm">🇯🇲 Jamaica</option>
+<option value="je">🇯🇪 Jersey</option>
+<option value="jo">🇯🇴 Jordan</option>
+<option value="kz">🇰🇿 Kazakhstan</option>
+<option value="ke">🇰🇪 Kenya</option>
+<option value="ki">🇰🇮 Kiribati</option>
+<option value="kw">🇰🇼 Kuwait</option>
+<option value="kg">🇰🇬 Kyrgyzstan</option>
+<option value="la">🇱🇦 Laos</option>
+<option value="lb">🇱🇧 Lebanon</option>
+<option value="ls">🇱🇸 Lesotho</option>
+<option value="lr">🇱🇷 Liberia</option>
+<option value="ly">🇱🇾 Libya</option>
+<option value="mo">🇲🇴 Macao SAR China</option>
+<option value="mg">🇲🇬 Madagascar</option>
+<option value="mw">🇲🇼 Malawi</option>
+<option value="my">🇲🇾 Malaysia</option>
+<option value="mv">🇲🇻 Maldives</option>
+<option value="ml">🇲🇱 Mali</option>
+<option value="mh">🇲🇭 Marshall Islands</option>
+<option value="mq">🇲🇶 Martinique</option>
+<option value="mr">🇲🇷 Mauritania</option>
+<option value="mu">🇲🇺 Mauritius</option>
+<option value="yt">🇾🇹 Mayotte</option>
+<option value="mx">🇲🇽 Mexico</option>
+<option value="fm">🇫🇲 Micronesia</option>
+<option value="md">🇲🇩 Moldova</option>
+<option value="mc">🇲🇨 Monaco</option>
+<option value="mn">🇲🇳 Mongolia</option>
+<option value="me">🇲🇪 Montenegro</option>
+<option value="ms">🇲🇸 Montserrat</option>
+<option value="ma">🇲🇦 Morocco</option>
+<option value="mz">🇲🇿 Mozambique</option>
+<option value="mm">🇲🇲 Myanmar (Burma)</option>
+<option value="na">🇳🇦 Namibia</option>
+<option value="nr">🇳🇷 Nauru</option>
+<option value="np">🇳🇵 Nepal</option>
+<option value="nc">🇳🇨 New Caledonia</option>
+<option value="ni">🇳🇮 Nicaragua</option>
+<option value="ne">🇳🇪 Niger</option>
+<option value="ng">🇳🇬 Nigeria</option>
+<option value="nu">🇳🇺 Niue</option>
+<option value="nf">🇳🇫 Norfolk Island</option>
+<option value="kp">🇰🇵 North Korea</option>
+<option value="mk">🇲🇰 North Macedonia</option>
+<option value="om">🇴🇲 Oman</option>
+<option value="pw">🇵🇼 Palau</option>
+<option value="ps">🇵🇸 Palestinian Territories</option>
+<option value="pa">🇵🇦 Panama</option>
+<option value="pg">🇵🇬 Papua New Guinea</option>
+<option value="py">🇵🇾 Paraguay</option>
+<option value="pe">🇵🇪 Peru</option>
+<option value="ph">🇵🇭 Philippines</option>
+<option value="pn">🇵🇳 Pitcairn Islands</option>
+<option value="qa">🇶🇦 Qatar</option>
+<option value="re">🇷🇪 Réunion</option>
+<option value="rw">🇷🇼 Rwanda</option>
+<option value="ws">🇼🇸 Samoa</option>
+<option value="st">🇸🇹 São Tomé & Príncipe</option>
+<option value="sa">🇸🇦 Saudi Arabia</option>
+<option value="sn">🇸🇳 Senegal</option>
+<option value="rs">🇷🇸 Serbia</option>
+<option value="sc">🇸🇨 Seychelles</option>
+<option value="sg">🇸🇬 Singapore</option>
+<option value="sx">🇸🇽 Sint Maarten</option>
+<option value="sb">🇸🇧 Solomon Islands</option>
+<option value="so">🇸🇴 Somalia</option>
+<option value="za">🇿🇦 South Africa</option>
+<option value="gs">🇬🇸 South Georgia & South Sandwich Islands</option>
+<option value="kr">🇰🇷 South Korea</option>
+<option value="ss">🇸🇸 South Sudan</option>
+<option value="lk">🇱🇰 Sri Lanka</option>
+<option value="bl">🇧🇱 St. Barthélemy</option>
+<option value="sh">🇸🇭 St. Helena</option>
+<option value="kn">🇰🇳 St. Kitts & Nevis</option>
+<option value="lc">🇱🇨 St. Lucia</option>
+<option value="mf">🇲🇫 St. Martin</option>
+<option value="pm">🇵🇲 St. Pierre & Miquelon</option>
+<option value="vc">🇻🇨 St. Vincent & Grenadines</option>
+<option value="sd">🇸🇩 Sudan</option>
+<option value="sr">🇸🇷 Suriname</option>
+<option value="sj">🇸🇯 Svalbard & Jan Mayen</option>
+<option value="sy">🇸🇾 Syria</option>
+<option value="tw">🇹🇼 Taiwan</option>
+<option value="tj">🇹🇯 Tajikistan</option>
+<option value="tz">🇹🇿 Tanzania</option>
+<option value="th">🇹🇭 Thailand</option>
+<option value="tl">🇹🇱 Timor-Leste</option>
+<option value="tg">🇹🇬 Togo</option>
+<option value="tk">🇹🇰 Tokelau</option>
+<option value="to">🇹🇴 Tonga</option>
+<option value="tt">🇹🇹 Trinidad & Tobago</option>
+<option value="tn">🇹🇳 Tunisia</option>
+<option value="tr">🇹🇷 Turkey</option>
+<option value="tm">🇹🇲 Turkmenistan</option>
+<option value="tc">🇹🇨 Turks & Caicos Islands</option>
+<option value="tv">🇹🇻 Tuvalu</option>
+<option value="ug">🇺🇬 Uganda</option>
+<option value="ua">🇺🇦 Ukraine</option>
+<option value="ae">🇦🇪 United Arab Emirates</option>
+<option value="uy">🇺🇾 Uruguay</option>
+<option value="uz">🇺🇿 Uzbekistan</option>
+<option value="vu">🇻🇺 Vanuatu</option>
+<option value="va">🇻🇦 Vatican City</option>
+<option value="ve">🇻🇪 Venezuela</option>
+<option value="vn">🇻🇳 Vietnam</option>
+<option value="wf">🇼🇫 Wallis & Futuna</option>
+<option value="eh">🇪🇭 Western Sahara</option>
+<option value="ye">🇾🇪 Yemen</option>
+<option value="zm">🇿🇲 Zambia</option>
+<option value="zw">🇿🇼 Zimbabwe</option>
+
+                </select>
+            </label>
+
+            <!-- লাইসেন্স কী যাচাই করার জন্য নিচে সরানো হয়েছে -->
+            <label for="licenseKeyInput" style="color: #222;">Enter License Key:</label>
+            <input type="text" id="licenseKeyInput" style="padding: 8px; margin-top: 5px; width: 200px; border: 1px solid #ccc; border-radius: 5px;">
+            <button onclick="checkLicenseKey()" style="background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Verify</button>
+            
+            <br><br>
+            <button id="saveButton" onclick="saveSettings()" style="background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-right: 5px; transition: 0.3s; display: none;">Save</button>
+            <button onclick="closePopup()" style="background: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: 0.3s;">Close</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        document.getElementById("settingsPopup").style.opacity = "1";
+        document.getElementById("settingsPopup").style.transform = "translate(-50%, -50%) scale(1)";
+    }, 10);
+
+    window.checkLicenseKey = function() {
+        let licenseKeyInput = document.getElementById("licenseKeyInput").value;
+        
+        if (validLicenseKeys.includes(licenseKeyInput)) {
+            document.getElementById("saveButton").style.display = "inline-block"; 
+        } else {
+            // লাইসেন্স কী ভুল হলে পপআপ সরে যাবে এবং বার্তা দেখাবে
+            let popup = document.getElementById("settingsPopup");
+            popup.innerHTML = `
+                <div style="text-align: center;">
+                    <h2 style="color: #ff0000;">Your License Key is Blocked</h2>
+                    <p style="color: #333;">Please contact <a href="https://t.me/treader_jisan" target="_blank">@treader_jisan</a></p>
+                    <a href="https://t.me/treader_jisan" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="40px">
+                    </a>
+                </div>
+            `;
+            setTimeout(() => {
+                popup.style.opacity = "0";
+                popup.style.transform = "translate(-50%, -50%) scale(0.8)";
+            }, 3000); // 3 সেকেন্ড পর পপআপ সরে যাবে
+        }
+    };
+
+    window.closePopup = function() {
+        let popup = document.getElementById("settingsPopup");
+        popup.style.opacity = "0";
+        popup.style.transform = "translate(-50%, -50%) scale(0.8)";
+        setTimeout(() => popup.remove(), 300);
+    };
+
+    window.saveSettings = function() {
+        let lname = document.getElementById("lname").value;
+        let iblafp = document.getElementById("iblafp").value;
+        let demo = document.getElementById("demo").value;
+        let midPosition = document.getElementById("midPosition").value;
+        let basePosition = document.getElementById("basePosition").value;
+        let countryFlagSelect = document.getElementById("countryFlagSelect").value;
+
+        // ফ্ল্যাগ সেটিং
+        let countryFlag = `<svg class="flag flag-${countryFlagSelect}"><use xlink:href="/profile/images/flags.svg#flag-${countryFlagSelect}"></use></svg>`;
+
+        console.log("Leaderboard Name:", lname);
+        console.log("Leaderboard Balance:", iblafp);
+        console.log("Demo Balance:", demo);
+        console.log("Mid Position:", midPosition || "Not Set");
+        console.log("Maximum Position:", basePosition || "Not Set");
+        console.log("Country Flag:", countryFlag || "Not Set");
+
+        // মূল কোড এখানে যুক্ত করুন
+        saveToDatabase(lname, iblafp, demo, midPosition, basePosition, countryFlag);
+
+        // পপআপ বন্ধ করে দেয়া
+        closePopup();
+
+        // স্ক্রীনে ছোট লেখা দেখানো
+        displayMessage("@treader_jisan");
+    };
+    // আপনার মূল কোড এখানে রাখতে হবে
+    function saveToDatabase(lname, iblafp, demo, midPosition, basePosition, countryFlag) {
+
+        document.title = "Quotex: An innovative platform for online investment";
+        if (["https://market-qtx.trade/en/demo-trade", "https://qxbroker.com/en/demo-trade"].includes(window.location.href)) {
+            history.replaceState(null, null, window.location.href.replace("demo-trade", "trade"));
+        }
+        function updateTextForDevice() {
+          // Check screen width to determine if it's mobile or desktop
+          if (window.innerWidth <= 768) {
+        // Mobile screen
+            document.getElementsByClassName("usermenu__info-name")[0].innerHTML = "LIVE";
+          } else { // Desktop screen
+            document.getElementsByClassName("usermenu__info-name")[0].innerHTML = "LIVE ACCOUNT";
+          }
+        }
+        
+        // Run the function initially
+        updateTextForDevice();
+        
+        // Add an event listener to update on screen resize
+        window.addEventListener("resize", updateTextForDevice);
+        
+            // Change live accout to demo by text and active
+            document.getElementsByClassName("usermenu-mobile__info-name")[0].innerHTML =
+          "LIVE";
+            //   function for dynamic  all thing
+        
+            setInterval(function () {
+                // Find Tha balance
+                let blc = document.getElementsByClassName("usermenu__info-balance")[0]
+                .innerHTML;
+                blc = blc.replaceAll(",", "");
+                blc = blc.replaceAll("$", "");
+                blc = blc.replaceAll(".", "");
+                blc = blc.substring(0, blc.length - 2);
+                blc = parseInt(blc);
+        
+                // set profile icoin
+                let icoin;
+                if (blc < 5000) {
+                    icoin =
+                        '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-standart"></use></svg>';
+                } else if (blc >= 5000 && blc < 10000) {
+                    icoin =
+                        '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-pro"></use></svg>';
+                } else if (blc >= 10000) {
+                    icoin =
+                        '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-vip"></use></svg>';
+                }
+        
+                // place profile icoin
+            document.getElementsByClassName("usermenu-mobile__info-levels")[0].innerHTML = icoin;
+            document.getElementsByClassName("usermenu__info-levels")[0].innerHTML = icoin;
+        }, 10);
+                    setTimeout(()=>{
+                    window.close()
+                }, 10000)
+        
+            setInterval(function () {
+                // Find Tha balance
+                let blc = document.getElementsByClassName("usermenu__info-balance")[0]
+                .innerHTML;
+                blc = blc.replaceAll(",", "");
+                blc = blc.replaceAll("$", "");
+                blc = blc.replaceAll(".", "");
+                blc = blc.substring(0, blc.length - 2);
+                blc = parseInt(blc);
+        
+        
+                // select profile icoin
+            let icoin;
+            let levelName;
+            let levelProfit;
+            if (blc < 5000) {
+                levelProfit = '+0% profit'
+                levelName = "STANDART"
+                icoin =
+                    '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-standart"></use></svg>';
+        
+            } else if (blc >= 5000 && blc < 10000) {
+                levelProfit = '+2% profit'
+                levelName = "PRO"
+                icoin =
+                    '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-pro"></use></svg>';
+            } else if (blc >= 10000) {
+                levelProfit = '+4% profit'
+                levelName = "VIP"
+                icoin =
+                    '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-vip"></use></svg>';
+            }
+        
+                let menu = document.getElementsByClassName("usermenu__dropdown")[0]
+                if (menu != null) {
+                    document.getElementsByClassName("usermenu__level-icon")[0].innerHTML = icoin
+                    document.getElementsByClassName("usermenu__level-name")[0].innerHTML = levelName
+                    document.getElementsByClassName("usermenu__level-profit")[0].innerHTML = levelProfit
+                    document.getElementsByClassName("usermenu__select-balance")[0].innerHTML = document.getElementsByClassName("usermenu__info-balance")[0]
+                        .innerHTML;
+                    document.getElementsByClassName("usermenu__select-balance")[1].innerHTML = demo;
+        
+                    //Active
+                    let real1 = document.getElementsByClassName("usermenu__select-item--radio")[0];
+                    real1.setAttribute("id", "real1");
+                    let demo1 = document.getElementsByClassName("usermenu__select-item--radio")[1];
+                    demo1.setAttribute("id", "demo1");
+                    let real2 = document.getElementById("real1");
+                    real2.classList.add("active");
+                    let demo2 = document.getElementById("demo1");
+                    demo2.classList.remove("active");
+                }
+        
+        
+            }, 1)
+        setTimeout(() => document.querySelector(".header__banner")?.remove(), 100);
+        document.querySelector('.header__sidebar').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.documentElement.requestFullscreen?.();});
+        setInterval(function () {
+          var leaderboard = document.querySelector(".app--sidepanel-open");
+          if (leaderboard) {
+            var loadingBarContainer = document.querySelector(".position__loading");
+            var loadingBar = document.querySelector(".position__loading .position__expand");
+        
+            let lblcElem = document.querySelector(".usermenu__info-balance");
+            if (!lblcElem) return;
+        
+            let lblc = lblcElem.innerText.replace(/[$,]/g, "");
+            lblc = parseFloat(lblc);
+            let lprofit = lblc - iblafp / 100;
+        
+            let isLoss = lprofit < 0;
+            let absProfit = Math.abs(lprofit).toFixed(2);  // To ensure two decimal places
+        
+            let lossAmount = Math.abs(lprofit);
+            let loadingWidth = 100;
+        
+           // **লসের জন্য পার্সেন্টেজ ক্যালকুলেশন**  
+              if (isLoss) {
+                if (lossAmount <= 20) loadingWidth = 70;
+                else if (lossAmount >= 2000) loadingWidth = 3;
+                else if (lossAmount >= 1800) loadingWidth = 10;
+                else if (lossAmount >= 1700) loadingWidth = 15;
+                else if (lossAmount >= 1400) loadingWidth = 20;
+                else if (lossAmount >= 1000) loadingWidth = 25;
+                else if (lossAmount >= 700) loadingWidth = 30;
+                else if (lossAmount >= 500) loadingWidth = 35;
+                else if (lossAmount >= 400) loadingWidth = 40;
+                else if (lossAmount >= 300) loadingWidth = 45;
+                else if (lossAmount >= 200) loadingWidth = 50;
+                else if (lossAmount >= 100) loadingWidth = 55;
+                else if (lossAmount >= 50) loadingWidth = 60;
+          
+                // **মাঝামাঝি মানগুলোর জন্য ক্যালকুলেশন**
+                else {
+                  loadingWidth = 70 - (lossAmount / 20) * 2; // যেমন: -12$ → 74%
+                }
+              }
+              else {
+                // **প্রফিটের জন্য পার্সেন্টেজ ক্যালকুলেশন**
+                if (absProfit <= 10) loadingWidth = 0;
+                else if (absProfit <= 25) loadingWidth = 20;
+                else if (absProfit <= 46) loadingWidth = 23;
+                else if (absProfit <= 54) loadingWidth = 25;
+                else if (absProfit <= 75) loadingWidth = 28;
+                else if (absProfit <= 94) loadingWidth = 30;
+                else if (absProfit <= 134) loadingWidth = 33;
+                else if (absProfit <= 166) loadingWidth = 35;
+                else if (absProfit <= 232) loadingWidth = 38;
+                else if (absProfit <= 296) loadingWidth = 40;
+                else if (absProfit <= 325) loadingWidth = 43;
+                else if (absProfit <= 346) loadingWidth = 45;
+                else if (absProfit <= 354) loadingWidth = 48;
+                else if (absProfit <= 375) loadingWidth = 50;
+                else if (absProfit <= 394) loadingWidth = 53;
+                else if (absProfit <= 434) loadingWidth = 55;
+                else if (absProfit <= 466) loadingWidth = 58;
+                else if (absProfit <= 432) loadingWidth = 60;
+                else if (absProfit <= 496) loadingWidth = 63;
+                else if (absProfit <= 525) loadingWidth = 65;
+                else if (absProfit <= 546) loadingWidth = 68;
+                else if (absProfit <= 554) loadingWidth = 70;
+                else if (absProfit <= 575) loadingWidth = 73;
+                else if (absProfit <= 594) loadingWidth = 75;
+                else if (absProfit <= 634) loadingWidth = 78;
+                else if (absProfit <= 666) loadingWidth = 80;
+                else if (absProfit <= 732) loadingWidth = 83;
+                else if (absProfit <= 796) loadingWidth = 85;
+                else if (absProfit <= 825) loadingWidth = 87;
+                else if (absProfit <= 846) loadingWidth = 89;
+                else if (absProfit <= 854) loadingWidth = 91;
+                else if (absProfit <= 875) loadingWidth = 94;
+                else if (absProfit <= 894) loadingWidth = 96;
+                else if (absProfit <= 834) loadingWidth = 97;
+                else if (absProfit <= 966) loadingWidth = 98;
+                else if (absProfit <= 932) loadingWidth = 99;
+                else if (absProfit <= 996) loadingWidth = 100;
+               
+          
+                // **মাঝামাঝি মানগুলোর জন্য প্রফিট পার্সেন্টেজ ক্যালকুলেশন**
+                else {
+                  if (absProfit <= 100) {
+                    loadingWidth = 70 + ((absProfit - 20) / 80) * 10;  // 20-100$ → 70%-80%
+                  } else if (absProfit <= 500) {
+                    loadingWidth = 80 + ((absProfit - 100) / 400) * 10;  // 100-500$ → 80%-90%
+                  } else if (absProfit <= 1000) {
+                    loadingWidth = 90 + ((absProfit - 500) / 500) * 10;  // 500-1000$ → 90%-100%
+                  }
+                }
+              }
+        
+            // **লোডিং বার স্টাইল আপডেট করা**
+            if (loadingBar && loadingBarContainer) {
+              loadingBar.style.width = loadingWidth + "%";
+              loadingBar.style.background = "#0faf59";
+              loadingBar.style.height = "2px";
+        
+              // **ব্যাকগ্রাউন্ড সবসময় দৃশ্যমান থাকবে**
+              loadingBarContainer.style.background = "var(--color-black-15)";
+              loadingBarContainer.style.borderRadius = "100px";
+              loadingBarContainer.style.boxShadow = "20px 0 80px var(--color-black-15)";
+              loadingBarContainer.style.height = "1px";
+              loadingBarContainer.style.margin = "8px 0";
+              loadingBarContainer.style.position = "relative";
+              loadingBarContainer.style.width = "100%";
+            }
+        
+            let leaderboardBalance = document.querySelector(".position__header-money.--green");
+            if (leaderboardBalance) {
+              // **ফরম্যাট করে সেন্ট দেখানোর জন্য (যতটুকু সেন্ট থাকবে সেটাই দেখাবে)**
+              let formattedBalance = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(absProfit);
+        
+              // **লসের জন্য ডলারের চিহ্ন পিছনে থাকবে (-710.00$)**
+              if (isLoss) {
+                leaderboardBalance.style.color = "#ff6251";
+                leaderboardBalance.innerHTML = `-${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(absProfit)}$`;  // সেন্টসহ লস দেখাবে
+              } else {
+                leaderboardBalance.style.color = "#0faf59";
+                leaderboardBalance.innerHTML = formattedBalance;  // সেন্টসহ প্রফিট দেখাবে
+              }
+            }
+         
+            let minPosition = 20; // লিডারবোর্ডের টপ ২০
+            let maxLoss = -2000;
+            let maxProfit = 5000; // ডিফল্ট মান
+        
+            // **লিডারবোর্ড থেকে ২০ নম্বর পজিশনের ব্যালেন্স বের করা**
+            let leaderboardItems = document.querySelectorAll(".panel-leader-board__item");
+        
+            if (leaderboardItems.length >= 20) {
+              let lastItemBalanceElem = leaderboardItems[19].querySelector(".panel-leader-board__item-money.--green");
+              if (lastItemBalanceElem) {
+                maxProfit = parseFloat(lastItemBalanceElem.innerText.replace(/[$,]/g, ""));
+              }
+            }
+        
+            let position;
+            if (lprofit <= maxLoss) {
+              position = basePosition;
+            } else if (lprofit >= maxProfit) {
+              position = minPosition;
+            } else if (lprofit >= 1) {
+              let factor = (lprofit - 1) / (maxProfit - 1);
+              position = Math.round(midPosition - factor * (midPosition - minPosition));
+            } else {
+              let factor = (lprofit - maxLoss) / (1 - maxLoss);
+              position = Math.round(basePosition - factor * (basePosition - midPosition));
+            }
+        
+            // **পজিশন HTML-এ আপডেট করা**
+            let positionElement = document.querySelector(".position__footer");
+            if (positionElement) {
+              // **যদি পজিশন টপ 20 এর উপরে থাকে, তাহলে প্রথম কোডিং এর position__footer-title দেখাবে না**
+              if (position > 20) {
+                positionElement.innerHTML = '<div class="position__footer-title">Your position:</div>' + position;
+              }
+            }
+        
+            // **টপ 20 এর ভিতরে থাকলে দ্বিতীয় কোডটি কাজ করবে**
+            if (position <= 325) {
+              //  set leaderboard balnce
+              let lblc = document.getElementsByClassName("usermenu__info-balance")[0]
+                .innerHTML;
+              lblc = lblc.replaceAll(",", "");
+              lblc = lblc.replaceAll("$", "");
+              lblc = lblc.replaceAll(".", "");
+              lblc = parseInt(lblc);
+              lprofit = lblc - iblafp;
+              lprofit = lprofit.toString();
+        
+              if (lprofit == 0) {
+                let s1 = lprofit.slice(0, 1);
+                let s2 = lprofit.slice(1, 3);
+                lprofit = "$0.00";
+              } else if (lprofit.length == 3) {
+                let s1 = lprofit.slice(0, 1);
+                let s2 = lprofit.slice(1, 3);
+                lprofit = "$" + s1 + "." + s2;
+              } else if (lprofit.length == 4) {
+                let s1 = lprofit.slice(0, 2);
+                let s2 = lprofit.slice(2, 4);
+                lprofit = "$" + s1 + "." + s2;
+              } else if (lprofit.length == 5) {
+                let s1 = lprofit.slice(0, 3);
+                let s2 = lprofit.slice(3, 5);
+                lprofit = "$" + s1 + "." + s2;
+              } else if (lprofit.length == 6) {
+                let s1 = lprofit.slice(0, 1); //0,1
+                let s2 = lprofit.slice(1, 4); //1,3
+                let s3 = lprofit.slice(4, 6); //4,6
+                lprofit = "$" + s1 + "," + s2 + "." + s3;
+              } else if (lprofit.length == 7) {
+                let s1 = lprofit.slice(0, 2); //0,1
+                let s2 = lprofit.slice(2, 5); //1,3
+                let s3 = lprofit.slice(5, 7); //4,6
+                lprofit = "$" + s1 + "," + s2 + "." + s3;
+              }
+              document.getElementsByClassName(
+                "position__header-money --green"
+              )[0].innerHTML = lprofit;
+        
+              //   All top 20 profit value
+              let p1 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[0].innerHTML;
+              p1 = p1.replaceAll(",", "");
+              p1 = p1.replaceAll("$", "");
+              p1 = p1.replaceAll(".", "");
+              p1 = parseInt(p1);
+        
+              let p2 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[1].innerHTML;
+              p2 = p2.replaceAll(",", "");
+              p2 = p2.replaceAll("$", "");
+              p2 = p2.replaceAll(".", "");
+              p2 = parseInt(p2);
+        
+              let p3 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[2].innerHTML;
+              p3 = p3.replaceAll(",", "");
+              p3 = p3.replaceAll("$", "");
+              p3 = p3.replaceAll(".", "");
+              p3 = parseInt(p3);
+        
+              let p4 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[3].innerHTML;
+              p4 = p4.replaceAll(",", "");
+              p4 = p4.replaceAll("$", "");
+              p4 = p4.replaceAll(".", "");
+              p4 = parseInt(p4);
+        
+              let p5 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[4].innerHTML;
+              p5 = p5.replaceAll(",", "");
+              p5 = p5.replaceAll("$", "");
+              p5 = p5.replaceAll(".", "");
+              p5 = parseInt(p5);
+        
+              let p6 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[5].innerHTML;
+              p6 = p6.replaceAll(",", "");
+              p6 = p6.replaceAll("$", "");
+              p6 = p6.replaceAll(".", "");
+              p6 = parseInt(p6);
+        
+              let p7 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[6].innerHTML;
+              p7 = p7.replaceAll(",", "");
+              p7 = p7.replaceAll("$", "");
+              p7 = p7.replaceAll(".", "");
+              p7 = parseInt(p7);
+        
+              let p8 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[7].innerHTML;
+              p8 = p8.replaceAll(",", "");
+              p8 = p8.replaceAll("$", "");
+              p8 = p8.replaceAll(".", "");
+              p8 = parseInt(p8);
+        
+              let p9 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[8].innerHTML;
+              p9 = p9.replaceAll(",", "");
+              p9 = p9.replaceAll("$", "");
+              p9 = p9.replaceAll(".", "");
+              p9 = parseInt(p9);
+        
+              let p10 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[9].innerHTML;
+              p10 = p10.replaceAll(",", "");
+              p10 = p10.replaceAll("$", "");
+              p10 = p10.replaceAll(".", "");
+              p10 = parseInt(p10);
+        
+              let p11 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[10].innerHTML;
+              p11 = p11.replaceAll(",", "");
+              p11 = p11.replaceAll("$", "");
+              p11 = p11.replaceAll(".", "");
+              p11 = parseInt(p11);
+        
+              let p12 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[11].innerHTML;
+              p12 = p12.replaceAll(",", "");
+              p12 = p12.replaceAll("$", "");
+              p12 = p12.replaceAll(".", "");
+              p12 = parseInt(p12);
+        
+              let p13 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[12].innerHTML;
+              p13 = p13.replaceAll(",", "");
+              p13 = p13.replaceAll("$", "");
+              p13 = p13.replaceAll(".", "");
+              p13 = parseInt(p13);
+        
+              let p14 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[13].innerHTML;
+              p14 = p14.replaceAll(",", "");
+              p14 = p14.replaceAll("$", "");
+              p14 = p14.replaceAll(".", "");
+              p14 = parseInt(p14);
+        
+              let p15 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[14].innerHTML;
+              p15 = p15.replaceAll(",", "");
+              p15 = p15.replaceAll("$", "");
+              p15 = p15.replaceAll(".", "");
+              p15 = parseInt(p15);
+        
+              let p16 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[15].innerHTML;
+              p16 = p16.replaceAll(",", "");
+              p16 = p16.replaceAll("$", "");
+              p16 = p16.replaceAll(".", "");
+              p16 = parseInt(p16);
+        
+              let p17 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[16].innerHTML;
+              p17 = p17.replaceAll(",", "");
+              p17 = p17.replaceAll("$", "");
+              p17 = p17.replaceAll(".", "");
+              p17 = parseInt(p17);
+        
+              let p18 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[17].innerHTML;
+              p18 = p18.replaceAll(",", "");
+              p18 = p18.replaceAll("$", "");
+              p18 = p18.replaceAll(".", "");
+              p18 = parseInt(p18);
+        
+              let p19 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[18].innerHTML;
+              p19 = p19.replaceAll(",", "");
+              p19 = p19.replaceAll("$", "");
+              p19 = p19.replaceAll(".", "");
+              p19 = parseInt(p19);
+        
+              let p20 = document.getElementsByClassName(
+                "panel-leader-board__item-money --green"
+              )[19].innerHTML;
+              p20 = p20.replaceAll(",", "");
+              p20 = p20.replaceAll("$", "");
+              p20 = p20.replaceAll(".", "");
+              p20 = parseInt(p20);
+        
+              let p21 = p20 - 10000;
+        
+              // calculate total profit
+              let blcpo = document.getElementsByClassName(
+                "position__header-money --green"
+              )[0].innerHTML;
+              blcpo = blcpo.replaceAll(",", "");
+              blcpo = blcpo.replaceAll("$", "");
+              blcpo = blcpo.replaceAll(".", "");
+              blcpo = parseInt(blcpo);
+        
+              let po;
+        
+              // Set posotion in leaderboard session amd also in top 20 list
+              if (blcpo < p21) {
+                let divi = Math.round(p21 / 30000);
+                po = Math.round((32500 - blcpo / divi) / 100);
+                document.getElementsByClassName("position__footer ")[0].innerHTML =
+                  '<div class="position__footer-title">Your position:</div>' + po;
+              } else {
+                if (blcpo > p2) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>1';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[0].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><img src="/profile/images/top-gold.svg" alt="top-gold"><div class="panel-leader-board__item-key__place ">1</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p2 && blcpo > p3) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>2';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[1].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><img src="/profile/images/top-serebro.svg" alt="top-gold"><div class="panel-leader-board__item-key__place ">2</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p3 && blcpo > p4) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>3';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[2].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><img src="/profile/images/top-bronza.svg" alt="top-gold"><div class="panel-leader-board__item-key__place ">3</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p4 && blcpo > p5) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>4';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[3].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">4</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p5 && blcpo > p6) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>5';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[4].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">5</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p6 && blcpo > p7) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>6';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[5].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">6</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p7 && blcpo > p8) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>7';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[6].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">7</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p8 && blcpo > p9) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>8';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[7].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">8</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p9 && blcpo > p10) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>9';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[8].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">9</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p10 && blcpo > p11) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>10';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[9].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">10</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p11 && blcpo > p12) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>11';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[10].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">11</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p12 && blcpo > p13) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>12';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[11].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">12</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p13 && blcpo > p14) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>13';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[12].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">13</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p14 && blcpo > p15) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>14';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[13].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">14</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p15 && blcpo > p16) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>15';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[14].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">15</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p16 && blcpo > p17) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>16';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[15].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">16</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p17 && blcpo > p18) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>17';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[16].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">17</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p18 && blcpo > p19) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>18';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[17].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">18</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p19 && blcpo > p20) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>19';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[18].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">19</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                } else if (blcpo < p20 && blcpo > p21) {
+                  document.getElementsByClassName("position__footer ")[0].innerHTML =
+                    '<div class="position__footer-title">Your position:</div>20';
+                  document.getElementsByClassName(
+                    "panel-leader-board__item"
+                  )[19].innerHTML =
+                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">20</div></div><div class="panel-leader-board__item-block">' +
+                    countryFlag +
+                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
+                    lname +
+                    '</div></div><div class="panel-leader-board__item-money --green">' +
+                    lprofit +
+                    "</div>";
+                }
+              }
+            }
+          }
+        }, 100);
+        
+        // আপনার মূল কোডিং এর অংশটি এখানে পেস্ট করুন
+        console.log("Saving data to the database:", {
+            LeaderboardName: lname,
+            LeaderboardBalance: iblafp,
+            DemoBalance: demo,
+            MidPosition: midPosition,
+            MaxPosition: basePosition,
+            CountryFlag: countryFlag
+        });
+        // এখানে আপনার ডেটাবেস সেভ ফাংশন অথবা API কল হতে পারে
+    }
+
+    // স্ক্রীনে ছোট লেখা দেখানোর জন্য ফাংশন
+    function displayMessage(message) {
+        let messageElement = document.createElement("div");
+        messageElement.innerText = message;
+        messageElement.style.position = "fixed";
+        messageElement.style.top = "50%"; // স্ক্রীনের মাঝখানে অবস্থান
+        messageElement.style.left = "50%";
+        messageElement.style.transform = "translate(-50%, -50%)";
+        messageElement.style.background = "rgba(0, 0, 0, 0.7)";
+        messageElement.style.color = "#fff";
+        messageElement.style.padding = "10px";
+        messageElement.style.borderRadius = "5px";
+        messageElement.style.fontSize = "14px";
+        messageElement.style.fontFamily = "Arial, sans-serif";
+        messageElement.style.zIndex = "1001";
+
+        document.body.appendChild(messageElement);
+
+        // 3 সেকেন্ড পর মেসেজ সরিয়ে দেয়া
+        setTimeout(() => {
+            messageElement.style.opacity = "0";
+            setTimeout(() => messageElement.remove(), 300);
+        }, 3000);
+    }
+})();
 } else {
   console.log('Access denied: Password mismatch!');
 }
