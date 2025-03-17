@@ -1,0 +1,11 @@
+// এই কোডটি GitHub লিংকে রাখা হবে
+const passwordFromLink = 'Liza';  // লিংকে থাকা পাসওয়ার্ড
+
+if (passwordFromLink === 'Liza') {
+  console.log('Access granted! The secret code will run now.');
+
+  // এখানে আপনার আসল কোড থাকবে যা আপনি চালাতে চান
+  alert('Code is running!');
+} else {
+  console.log('Access denied: Password mismatch!');
+}
