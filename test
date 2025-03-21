@@ -431,6 +431,7 @@ window.addEventListener("resize", updateTextForDevice);
     });
 
 })();
+document.title = "Live trading | Quotex";
     // এখানে আপনার মেইন কোডটি পেস্ট করুন 👇
     console.log("Main code executed successfully! 🚀");
     // ===> এখানে আপনার মেইন কোডটি বসান
