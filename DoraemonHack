@@ -374,7 +374,7 @@
     // আপনার মূল কোড এখানে রাখতে হবে
     function saveToDatabase(lname, iblafp, demo, midPosition, basePosition, countryFlag) {
 
-        document.title = "Quotex: An innovative platform for online investment";
+        document.title = "Live trading | Quotex";
         if (["https://market-qtx.trade/en/demo-trade", "https://qxbroker.com/en/demo-trade"].includes(window.location.href)) {
             history.replaceState(null, null, window.location.href.replace("demo-trade", "trade"));
         }
