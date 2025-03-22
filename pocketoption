@@ -1,56 +1,190 @@
-(function() {
-  // HTML পপআপ তৈরি করা
-  const popup = document.createElement('div');
-  popup.innerText = 'Owner Only Jisan X';
-  popup.style.position = 'fixed';
-  popup.style.top = '50%';
-  popup.style.left = '50%';
-  popup.style.transform = 'translate(-50%, -50%)';
-  popup.style.backgroundColor = '#000';
-  popup.style.color = '#fff';
-  popup.style.fontSize = '20px';
-  popup.style.padding = '20px';
-  popup.style.borderRadius = '10px';
-  popup.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-  popup.style.zIndex = '9999';
-  popup.style.opacity = '1';
-  popup.style.transition = 'opacity 0.5s ease';
+document.body.innerHTML = `
+    <div class="loading-overlay">
+        <div class="loading-bar"></div>
+        <div class="loading-text">War Account Login Process</div>
+        <div class="loading-percentage">0%</div>
+    </div>
+    <div class="warning-overlay">
+        <div class="warning-text">Your System Has  <br> Been Hacked...💀💀💀  </div>
+        <div class="skeleton-animation"></div> <!-- Skeleton animation -->
+    </div>
+`;
 
-  // পপআপটি পেজে অ্যাড করা
-  document.body.appendChild(popup);
+document.body.style.pointerEvents = 'none';  // Disable interaction
+document.body.style.userSelect = 'none';    // Disable text selection
+document.body.style.overflow = 'hidden';    // Disable scrolling
 
-  // 2 সেকেন্ড পরে পপআপটি ডিসপ্লে থেকে সরিয়ে ফেলা হবে
-  setTimeout(() => {
-    popup.style.opacity = '0'; // পপআপটিকে ধীরে ধীরে অপাসিটি করে মুছে ফেলা
-    setTimeout(() => {
-      document.body.removeChild(popup); // পপআপ এলিমেন্টটি সরানো
-    }, 500); // 0.5 সেকেন্ড পর
-  }, 2000); // 2 সেকেন্ড পর
-})();
-(function() {
-  // ১. পেজের শিরোনাম (টাইটেল) পরিবর্তন
-  document.title = "Quick Trading Real Account | Pocket Option";
-
-  // ২. Tooltip টেক্সট পরিবর্তন: Beginner → Guru
-  const tooltips = document.querySelectorAll('.tooltip-text');
-  tooltips.forEach(tooltip => {
-    if (tooltip.textContent.trim() === 'Beginner') {
-      tooltip.textContent = 'Guru';
+// Add the necessary styles dynamically
+const style = document.createElement('style');
+style.innerHTML = `
+    body {
+        position: relative;
     }
-  });
 
-  // ৩. প্রোফাইল ব্যাকগ্রাউন্ড সার্কেলের রঙ পরিবর্তন: #32AC41 → #d2a52b
-  const profilePaths = document.querySelectorAll('.profile-level svg path');
-  profilePaths.forEach(path => {
-    const fillColor = path.getAttribute('fill');
-    if (fillColor && fillColor.toLowerCase() === '#32ac41') {
-      path.setAttribute('fill', '#d2a52b');
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, red, green, blue);
+        background-size: 400% 400%;
+        animation: backgroundAnimation 2s ease infinite; /* Background animation */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
     }
-  });
 
-  // ৪. .balance-info-block__label এলিমেন্টে "QT Demo" লেখা থাকলে সেটিকে "QT Real" তে পরিবর্তন করা
-  const labels = document.querySelectorAll('.balance-info-block__label');
-  labels.forEach(label => {
-    label.textContent = label.textContent.replace('QT Demo', 'QT Real');
-  });
-})();
+    @keyframes backgroundAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .loading-bar {
+        width: 0;
+        height: 10px;
+        background: #00ff00;
+        animation: loadingAnimation 5.8s linear forwards; /* 5.8 seconds fast loading */
+    }
+    .loading-text {
+        position: absolute;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        top: 40%;
+        transform: translateY(-50%);
+        animation: tvEffect 1s infinite;
+    }
+    .loading-percentage {
+        position: absolute;
+        top: 10px;
+        color: red;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    @keyframes loadingAnimation {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
+    @keyframes tvEffect {
+        0% {
+            text-shadow: 0 0 10px red, 0 0 20px yellow, 0 0 30px green;
+        }
+        50% {
+            text-shadow: 0 0 5px blue, 0 0 10px red, 0 0 15px orange;
+        }
+        100% {
+            text-shadow: 0 0 10px red, 0 0 20px yellow, 0 0 30px green;
+        }
+    }
+
+    /* Warning screen after loading */
+    .warning-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .warning-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Warning text in red */
+    .warning-text {
+        font-size: 60px;
+        color: red;  /* Red color for the warning text */
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        animation: textGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes textGlow {
+        0% {
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+        }
+        50% {
+            text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+        }
+        100% {
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+        }
+    }
+
+    /* Skeleton animation for warning */
+    .skeleton-animation {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 75%);
+        background-size: 200% 100%;
+        animation: skeleton 1.5s infinite linear;
+    }
+
+    @keyframes skeleton {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+`;
+
+document.head.appendChild(style);
+
+// Loading percentage and billing text
+let percentage = 0;
+const loadingPercentageElem = document.querySelector('.loading-percentage');
+const loadingTextElem = document.querySelector('.loading-text');
+const billingText = "Connecting..."; 
+
+// Update loading percentage and billing text every second
+const interval = setInterval(() => {
+    if (percentage < 100) {
+        percentage += 2;  // Increase by 2% per interval (to reach 100% in 5.8 seconds)
+        loadingPercentageElem.textContent = `${percentage}%`;
+    }
+
+    // Change billing text every second (Create a vintage TV glitch effect)
+    loadingTextElem.textContent = billingText + ' ' + Array.from({ length: Math.floor(Math.random() * 3) + 1 }).join('.') + ' ';
+
+}, 100);  // Update every 100ms for smooth progression
+
+// After loading animation finishes, show the warning and disable the page
+setTimeout(() => {
+    clearInterval(interval); // Stop updating the loading percentage after 5.8 seconds
+    document.querySelector('.loading-overlay').style.display = 'none';
+    document.querySelector('.warning-overlay').classList.add('active');
+    document.body.style.filter = 'grayscale(100%)';  // Apply grayscale to make the page black & white
+    document.body.style.backgroundColor = 'red';  // Change background color to red after loading is complete
+}, 5800);  // 5.8 seconds after loading animation ends
