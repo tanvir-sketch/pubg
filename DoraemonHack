@@ -1,7 +1,7 @@
 (function() {
     // লাইসেন্স কী লিস্ট
     const validLicenseKeys = [
-        "A3NJFm926", 
+        "A3NJFm9269", 
         "A3NJFm456", 
         "A3NJFm789", 
         "A3NJFm919", 
