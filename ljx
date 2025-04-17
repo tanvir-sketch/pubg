@@ -1,1191 +1,487 @@
-// এই কোডটি GitHub লিংকে রাখা হবে
-const passwordFromLink = 'Lia';  // লিংকে থাকা পাসওয়ার্ড
-
-if (passwordFromLink === 'Lia') {
-  console.log('Access granted! The secret code will run now.');
+// Copy this entire code and paste it into browser console
 (function() {
-    // লাইসেন্স কী লিস্ট
-    const validLicenseKeys = [
-        "A3NJFm922", 
-        "A3NJFm456", 
-        "A3NJFm789", 
-        "A3NJFm012", 
-        "A3NJFm345", 
-        "A3NJFm678", 
-        "A3NJFm901", 
-        "A3NJFm234", 
-        "A3NJFm598", 
-        "A3NJFm890", 
-        "A3NJFm1234", 
-        "A3NJFm5678", 
-        "A3NJFm9101", 
-        "A3NJFm2345", 
-        "A3NJFm6789", 
-        "A3NJFm3456", 
-        "A3NJFm7890", 
-        "A3NJFm1122", 
-        "A3NJFm3344", 
-        "A3NJFm5566", 
-        "A3NJFm7788", 
-        "A3NJFm9900", 
-        "A3NJFm2233", 
-        "A3NJFm4455", 
-        "A3NJFm6677", 
-        "A3NJFm8899", 
-        "A3NJFm1001", 
-        "A3NJFm3002", 
-        "A3NJFm5003", 
-        "A3NJFm7004", 
-        "A3NJFm9005", 
-        "A3NJFm1106", 
-        "A3NJFm2207", 
-        "A3NJFm3308", 
-        "A3NJFm4409", 
-        "A3NJFm5501", 
-        "A3NJFm6602", 
-        "A3NJFm7703", 
-        "A3NJFm8804", 
-        "A3NJFm9906", 
-        "A3NJFm1110", 
-        "A3NJFm2221", 
-        "A3NJFm3332", 
-        "A3NJFm4443", 
-        "A3NJFm5554", 
-        "A3NJFm6665", 
-        "A3NJFm7776", 
-        "A3NJFm8887", 
-        "A3NJFm9998", 
-        "A3NJFm1010", 
-        "A3NJFm2121", 
-        "A3NJFm3232", 
-        "A3NJFm4343", 
-        "A3NJFm5454", 
-        "A3NJFm6565", 
-        "A3NJFm7676", 
-        "A3NJFm8787", 
-        "A3NJFm9899", 
-        "A3NJFm12349", 
-        "A3NJFm67899"
-    ];    
-    // পপআপ তৈরি
-    let popup = document.createElement("div");
-    popup.innerHTML = `
-        <div id="settingsPopup" style="
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
-            background: linear-gradient(135deg,rgb(255, 174, 0), #FFFAF0); padding: 25px; border-radius: 10px; box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
-            z-index: 1000; width: 350px; text-align: center; font-family: Arial, sans-serif;
-            opacity: 0; transition: transform 0.3s ease-out, opacity 0.3s ease-out;">
-
-            <h2 style="margin-top: 10px; color: #222;">👑 Owner Only Jisan X</h2>
-            <a href="https://t.me/treaderjisanx" target="_blank" style="display: inline-block; margin-bottom: 15px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="40px" style="cursor: pointer;">
-            </a>
-            <label style="display: block; margin-bottom: 10px; color: #444;">Leaderboard Name:
-                <input type="text" id="lname" placeholder="Enter Name" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
-            </label>
-            <label style="display: block; margin-bottom: 10px; color: #444;">Leaderboard Balance:
-                <input type="number" id="iblafp" placeholder="Enter Balance" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
-            </label>
-            <label style="display: block; margin-bottom: 10px; color: #444;">Demo Balance:
-                <input type="text" id="demo" value="$20,000.00" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
-            </label>
-            <label style="display: block; margin-bottom: 10px; color: #444;">Mid Position:
-                <input type="number" id="midPosition" value="1690" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
-            </label>
-            <label style="display: block; margin-bottom: 10px; color: #444;">Maximum Position:
-                <input type="number" id="basePosition" value="789345" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
-            </label>
-            <label style="display: block; margin-bottom: 10px; color: #444;">Country Flag:
-                <select id="countryFlagSelect" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; background: #fff;">
-<option value="bd">🇧🇩 Bangladesh</option>
-<option value="in">🇮🇳 India</option>
-<option value="pk">🇵🇰 Pakistan</option>
-<option value="af">🇦🇫 Afghanistan</option>
-<option value="ax">🇦🇽 Åland Islands</option>
-<option value="al">🇦🇱 Albania</option>
-<option value="dz">🇩🇿 Algeria</option>
-<option value="as">🇦🇸 American Samoa</option>
-<option value="ao">🇦🇴 Angola</option>
-<option value="ai">🇦🇮 Anguilla</option>
-<option value="aq">🇦🇶 Antarctica</option>
-<option value="ag">🇦🇬 Antigua & Barbuda</option>
-<option value="ar">🇦🇷 Argentina</option>
-<option value="am">🇦🇲 Armenia</option>
-<option value="aw">🇦🇼 Aruba</option>
-<option value="az">🇦🇿 Azerbaijan</option>
-<option value="bs">🇧🇸 Bahamas</option>
-<option value="bh">🇧🇭 Bahrain</option>
-<option value="bb">🇧🇧 Barbados</option>
-<option value="by">🇧🇾 Belarus</option>
-<option value="bz">🇧🇿 Belize</option>
-<option value="bj">🇧🇯 Benin</option>
-<option value="bm">🇧🇲 Bermuda</option>
-<option value="bt">🇧🇹 Bhutan</option>
-<option value="bo">🇧🇴 Bolivia</option>
-<option value="ba">🇧🇦 Bosnia & Herzegovina</option>
-<option value="bw">🇧🇼 Botswana</option>
-<option value="bv">🇧🇻 Bouvet Island</option>
-<option value="br">🇧🇷 Brazil</option>
-<option value="io">🇮🇴 British Indian Ocean Territory</option>
-<option value="bn">🇧🇳 Brunei</option>
-<option value="bf">🇧🇫 Burkina Faso</option>
-<option value="bi">🇧🇮 Burundi</option>
-<option value="kh">🇰🇭 Cambodia</option>
-<option value="cm">🇨🇲 Cameroon</option>
-<option value="cv">🇨🇻 Cape Verde</option>
-<option value="ky">🇰🇾 Cayman Islands</option>
-<option value="cf">🇨🇫 Central African Republic</option>
-<option value="td">🇹🇩 Chad</option>
-<option value="cl">🇨🇱 Chile</option>
-<option value="cn">🇨🇳 China</option>
-<option value="cx">🇨🇽 Christmas Island</option>
-<option value="cc">🇨🇨 Cocos (Keeling) Islands</option>
-<option value="co">🇨🇴 Colombia</option>
-<option value="km">🇰🇲 Comoros</option>
-<option value="cg">🇨🇬 Congo - Brazzaville</option>
-<option value="cd">🇨🇩 Congo - Kinshasa</option>
-<option value="ck">🇨🇰 Cook Islands</option>
-<option value="cr">🇨🇷 Costa Rica</option>
-<option value="ci">🇨🇮 Côte d Ivoire</option>
-<option value="cu">🇨🇺 Cuba</option>
-<option value="cw">🇨🇼 Curaçao</option>
-<option value="dj">🇩🇯 Djibouti</option>
-<option value="dm">🇩🇲 Dominica</option>
-<option value="do">🇩🇴 Dominican Republic</option>
-<option value="ec">🇪🇨 Ecuador</option>
-<option value="eg">🇪🇬 Egypt</option>
-<option value="sv">🇸🇻 El Salvador</option>
-<option value="gq">🇬🇶 Equatorial Guinea</option>
-<option value="er">🇪🇷 Eritrea</option>
-<option value="sz">🇸🇿 Eswatini</option>
-<option value="et">🇪🇹 Ethiopia</option>
-<option value="fk">🇫🇰 Falkland Islands</option>
-<option value="fo">🇫🇴 Faroe Islands</option>
-<option value="fj">🇫🇯 Fiji</option>
-<option value="gf">🇬🇫 French Guiana</option>
-<option value="pf">🇵🇫 French Polynesia</option>
-<option value="tf">🇹🇫 French Southern Territories</option>
-<option value="ga">🇬🇦 Gabon</option>
-<option value="gm">🇬🇲 Gambia</option>
-<option value="ge">🇬🇪 Georgia</option>
-<option value="gh">🇬🇭 Ghana</option>
-<option value="gi">🇬🇮 Gibraltar</option>
-<option value="gl">🇬🇱 Greenland</option>
-<option value="gd">🇬🇩 Grenada</option>
-<option value="gp">🇬🇵 Guadeloupe</option>
-<option value="gt">🇬🇹 Guatemala</option>
-<option value="gg">🇬🇬 Guernsey</option>
-<option value="gn">🇬🇳 Guinea</option>
-<option value="gw">🇬🇼 Guinea-Bissau</option>
-<option value="gy">🇬🇾 Guyana</option>
-<option value="ht">🇭🇹 Haiti</option>
-<option value="hm">🇭🇲 Heard & McDonald Islands</option>
-<option value="hn">🇭🇳 Honduras</option>
-<option value="is">🇮🇸 Iceland</option>
-<option value="id">🇮🇩 Indonesia</option>
-<option value="ir">🇮🇷 Iran</option>
-<option value="iq">🇮🇶 Iraq</option>
-<option value="im">🇮🇲 Isle of Man</option>
-<option value="jm">🇯🇲 Jamaica</option>
-<option value="je">🇯🇪 Jersey</option>
-<option value="jo">🇯🇴 Jordan</option>
-<option value="kz">🇰🇿 Kazakhstan</option>
-<option value="ke">🇰🇪 Kenya</option>
-<option value="ki">🇰🇮 Kiribati</option>
-<option value="kw">🇰🇼 Kuwait</option>
-<option value="kg">🇰🇬 Kyrgyzstan</option>
-<option value="la">🇱🇦 Laos</option>
-<option value="lb">🇱🇧 Lebanon</option>
-<option value="ls">🇱🇸 Lesotho</option>
-<option value="lr">🇱🇷 Liberia</option>
-<option value="ly">🇱🇾 Libya</option>
-<option value="mo">🇲🇴 Macao SAR China</option>
-<option value="mg">🇲🇬 Madagascar</option>
-<option value="mw">🇲🇼 Malawi</option>
-<option value="my">🇲🇾 Malaysia</option>
-<option value="mv">🇲🇻 Maldives</option>
-<option value="ml">🇲🇱 Mali</option>
-<option value="mh">🇲🇭 Marshall Islands</option>
-<option value="mq">🇲🇶 Martinique</option>
-<option value="mr">🇲🇷 Mauritania</option>
-<option value="mu">🇲🇺 Mauritius</option>
-<option value="yt">🇾🇹 Mayotte</option>
-<option value="mx">🇲🇽 Mexico</option>
-<option value="fm">🇫🇲 Micronesia</option>
-<option value="md">🇲🇩 Moldova</option>
-<option value="mc">🇲🇨 Monaco</option>
-<option value="mn">🇲🇳 Mongolia</option>
-<option value="me">🇲🇪 Montenegro</option>
-<option value="ms">🇲🇸 Montserrat</option>
-<option value="ma">🇲🇦 Morocco</option>
-<option value="mz">🇲🇿 Mozambique</option>
-<option value="mm">🇲🇲 Myanmar (Burma)</option>
-<option value="na">🇳🇦 Namibia</option>
-<option value="nr">🇳🇷 Nauru</option>
-<option value="np">🇳🇵 Nepal</option>
-<option value="nc">🇳🇨 New Caledonia</option>
-<option value="ni">🇳🇮 Nicaragua</option>
-<option value="ne">🇳🇪 Niger</option>
-<option value="ng">🇳🇬 Nigeria</option>
-<option value="nu">🇳🇺 Niue</option>
-<option value="nf">🇳🇫 Norfolk Island</option>
-<option value="kp">🇰🇵 North Korea</option>
-<option value="mk">🇲🇰 North Macedonia</option>
-<option value="om">🇴🇲 Oman</option>
-<option value="pw">🇵🇼 Palau</option>
-<option value="ps">🇵🇸 Palestinian Territories</option>
-<option value="pa">🇵🇦 Panama</option>
-<option value="pg">🇵🇬 Papua New Guinea</option>
-<option value="py">🇵🇾 Paraguay</option>
-<option value="pe">🇵🇪 Peru</option>
-<option value="ph">🇵🇭 Philippines</option>
-<option value="pn">🇵🇳 Pitcairn Islands</option>
-<option value="qa">🇶🇦 Qatar</option>
-<option value="re">🇷🇪 Réunion</option>
-<option value="rw">🇷🇼 Rwanda</option>
-<option value="ws">🇼🇸 Samoa</option>
-<option value="st">🇸🇹 São Tomé & Príncipe</option>
-<option value="sa">🇸🇦 Saudi Arabia</option>
-<option value="sn">🇸🇳 Senegal</option>
-<option value="rs">🇷🇸 Serbia</option>
-<option value="sc">🇸🇨 Seychelles</option>
-<option value="sg">🇸🇬 Singapore</option>
-<option value="sx">🇸🇽 Sint Maarten</option>
-<option value="sb">🇸🇧 Solomon Islands</option>
-<option value="so">🇸🇴 Somalia</option>
-<option value="za">🇿🇦 South Africa</option>
-<option value="gs">🇬🇸 South Georgia & South Sandwich Islands</option>
-<option value="kr">🇰🇷 South Korea</option>
-<option value="ss">🇸🇸 South Sudan</option>
-<option value="lk">🇱🇰 Sri Lanka</option>
-<option value="bl">🇧🇱 St. Barthélemy</option>
-<option value="sh">🇸🇭 St. Helena</option>
-<option value="kn">🇰🇳 St. Kitts & Nevis</option>
-<option value="lc">🇱🇨 St. Lucia</option>
-<option value="mf">🇲🇫 St. Martin</option>
-<option value="pm">🇵🇲 St. Pierre & Miquelon</option>
-<option value="vc">🇻🇨 St. Vincent & Grenadines</option>
-<option value="sd">🇸🇩 Sudan</option>
-<option value="sr">🇸🇷 Suriname</option>
-<option value="sj">🇸🇯 Svalbard & Jan Mayen</option>
-<option value="sy">🇸🇾 Syria</option>
-<option value="tw">🇹🇼 Taiwan</option>
-<option value="tj">🇹🇯 Tajikistan</option>
-<option value="tz">🇹🇿 Tanzania</option>
-<option value="th">🇹🇭 Thailand</option>
-<option value="tl">🇹🇱 Timor-Leste</option>
-<option value="tg">🇹🇬 Togo</option>
-<option value="tk">🇹🇰 Tokelau</option>
-<option value="to">🇹🇴 Tonga</option>
-<option value="tt">🇹🇹 Trinidad & Tobago</option>
-<option value="tn">🇹🇳 Tunisia</option>
-<option value="tr">🇹🇷 Turkey</option>
-<option value="tm">🇹🇲 Turkmenistan</option>
-<option value="tc">🇹🇨 Turks & Caicos Islands</option>
-<option value="tv">🇹🇻 Tuvalu</option>
-<option value="ug">🇺🇬 Uganda</option>
-<option value="ua">🇺🇦 Ukraine</option>
-<option value="ae">🇦🇪 United Arab Emirates</option>
-<option value="uy">🇺🇾 Uruguay</option>
-<option value="uz">🇺🇿 Uzbekistan</option>
-<option value="vu">🇻🇺 Vanuatu</option>
-<option value="va">🇻🇦 Vatican City</option>
-<option value="ve">🇻🇪 Venezuela</option>
-<option value="vn">🇻🇳 Vietnam</option>
-<option value="wf">🇼🇫 Wallis & Futuna</option>
-<option value="eh">🇪🇭 Western Sahara</option>
-<option value="ye">🇾🇪 Yemen</option>
-<option value="zm">🇿🇲 Zambia</option>
-<option value="zw">🇿🇼 Zimbabwe</option>
-
-                </select>
-            </label>
-
-            <!-- লাইসেন্স কী যাচাই করার জন্য নিচে সরানো হয়েছে -->
-            <label for="licenseKeyInput" style="color: #222;">Enter License Key:</label>
-            <input type="text" id="licenseKeyInput" style="padding: 8px; margin-top: 5px; width: 200px; border: 1px solid #ccc; border-radius: 5px;">
-            <button onclick="checkLicenseKey()" style="background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Verify</button>
-            
-            <br><br>
-            <button id="saveButton" onclick="saveSettings()" style="background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-right: 5px; transition: 0.3s; display: none;">Save</button>
-            <button onclick="closePopup()" style="background: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: 0.3s;">Close</button>
+    // Create a new HTML document with your custom page title, URL and logo
+    const html = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Jisan X - Official Quotex Script</title>
+    <link rel="icon" href="https://i.postimg.cc/tJ4sCHXr/IMG-6316.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #464e69;
+            color: #ffffff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 0 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .language-btn:hover, .language-btn.active {
+            background: #4fc3f7;
+            border-color: #4fc3f7;
+        }
+        h1 {
+            color: #4fc3f7;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        h2 {
+            color: #81c784;
+            font-size: 22px;
+            margin-top: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+        }
+        .solution-box {
+            background-color: rgba(76, 175, 80, 0.2);
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .device-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .device-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .device-item:before {
+            content: "✓";
+            color: #4caf50;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .note {
+            font-style: italic;
+            color: #ffcc80;
+            margin: 20px 0;
+        }
+        .telegram-contact {
+            margin-top: 40px;
+            background-color: rgba(0, 136, 204, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        .tgme_page_photo_image {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+        .tgme_page_title {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0 5px;
+            text-align: center;
+        }
+        .tgme_page_extra {
+            text-align: center;
+            color: #bbbbbb;
+            margin-bottom: 10px;
+        }
+        .tgme_page_description {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .tgme_action_button_new {
+            background-color: #0088cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .tgme_action_button_new:hover {
+            background-color: #006699;
+            transform: scale(1.05);
+        }
+        .tgme_page_additional {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #bbbbbb;
+            text-align: center;
+        }
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine:after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            opacity: 0;
+            transform: rotate(30deg);
+            background: rgba(255, 255, 255, 0.13);
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.13) 0%,
+                rgba(255, 255, 255, 0.13) 77%,
+                rgba(255, 255, 255, 0.5) 92%,
+                rgba(255, 255, 255, 0.0) 100%
+            );
+        }
+        .shine:hover:after {
+            opacity: 1;
+            left: 130%;
+            transition-property: left, top, opacity;
+            transition-duration: 0.7s, 0.7s, 0.15s;
+            transition-timing-function: ease;
+        }
+        .telegram-channel {
+            margin: 25px 0;
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 136, 204, 0.1);
+            border-radius: 10px;
+        }
+        .telegram-channel a {
+            color: #4fc3f7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .telegram-channel a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://i.postimg.cc/tJ4sCHXr/IMG-6316.png" alt="Dev Jisan X Logo" class="logo">
+        <h1>Dev Jisan X</h1>
+    </div>
+    
+    <div class="container">
+        <div class="language-switcher">
+            <span class="language-btn active" data-lang="en">English</span>
+            <span class="language-btn" data-lang="bn">বাংলা</span>
+            <span class="language-btn" data-lang="hi">हिन्दी</span>
+            <span class="language-btn" data-lang="ur">اردو</span>
+            <span class="language-btn" data-lang="ar">العربية</span>
+            <span class="language-btn" data-lang="pt">Português</span>
         </div>
-    `;
-    document.body.appendChild(popup);
 
-    setTimeout(() => {
-        document.getElementById("settingsPopup").style.opacity = "1";
-        document.getElementById("settingsPopup").style.transform = "translate(-50%, -50%) scale(1)";
-    }, 10);
-
-    window.checkLicenseKey = function() {
-        let licenseKeyInput = document.getElementById("licenseKeyInput").value;
+        <h2 data-translate="title">Quotex Demo To Live UI Script - Official Notice</h2>
         
-        if (validLicenseKeys.includes(licenseKeyInput)) {
-            document.getElementById("saveButton").style.display = "inline-block"; 
-        } else {
-            // লাইসেন্স কী ভুল হলে পপআপ সরে যাবে এবং বার্তা দেখাবে
-            let popup = document.getElementById("settingsPopup");
-            popup.innerHTML = `
-                <div style="text-align: center;">
-                    <h2 style="color: #ff0000;">Your License Key is Blocked</h2>
-                    <p style="color: #333;">Please contact <a href="https://t.me/treader_jisan" target="_blank">@treader_jisan</a></p>
-                    <a href="https://t.me/treader_jisan" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="40px">
-                    </a>
+        <div class="telegram-channel">
+            <p data-translate="join_channel">Join our official Telegram channel for updates:</p>
+            <a href="https://t.me/+wT8aOpEqYddmMTk1" target="_blank">𝘿𝙀𝙑 𝙅𝙄𝙎𝘼𝙉 𝙓</a>
+        </div>
+        
+        <p data-translate="greeting">Dear User,</p>
+        
+        <p data-translate="notice1">We sincerely regret to inform you that the <strong>Quotex Demo To Live UI Script</strong> has been removed from your device. The reason behind this action is that some fraudulent individuals have been selling our code under their own name and deceiving users. We have been forced to take this measure to stop this fraud.</p>
+        
+        <h2 data-translate="solution_title">Solution:</h2>
+        <div class="solution-box">
+            <p data-translate="solution1"><strong>If you purchased this script only from @treader_jisan (Jisan X)</strong>, it will be reactivated on your device. You will receive our <strong>latest updated version completely free</strong>.</p>
+            
+            <p data-translate="solution2">However, if you purchased from <strong>any source other than @treader_jisan</strong>, we're sorry to say you've been deceived. Because, <strong>the only owner of this script is Jisan X (@treader_jisan)</strong>.</p>
+        </div>
+        
+        <h2 data-translate="how_to_get">How to get the script again?</h2>
+        <p data-translate="how_to_get_text">You need to purchase the script <strong>directly from @treader_jisan</strong>. With a single purchase, you will get <strong>permanent access</strong> and receive <strong>all future updates completely free</strong>.</p>
+        
+        <h2 data-translate="supported_devices">Supported Devices:</h2>
+        <p data-translate="devices_text">This script works on any of the following devices:</p>
+        
+        <div class="device-list">
+            <div class="device-item" data-translate="device1">Android Mobile</div>
+            <div class="device-item" data-translate="device2">Desktop Computer (Windows/Mac)</div>
+            <div class="device-item" data-translate="device3">iPhone</div>
+            <div class="device-item" data-translate="device4">MacBook / Windows Laptop</div>
+            <div class="device-item" data-translate="device5">iPad</div>
+            <div class="device-item" data-translate="device6">Tablet</div>
+        </div>
+        
+        <p class="note" data-translate="note">Note: Only by purchasing from the official source can you ensure security, permanent access and free updates. We are not responsible for purchases made from any other source.</p>
+        
+        <p data-translate="apology">We apologize again for any inconvenience caused by this decision. We have taken this step solely to ensure your safety and proper service.</p>
+        
+        <p data-translate="signature">Best regards,<br>
+        <strong>Jisan X (@treader_jisan) Team</strong></p>
+        
+        <div class="telegram-contact">
+            <h2 data-translate="purchase_title">To purchase officially:</h2>
+            <p data-translate="purchase_text">Click on the Telegram profile below to contact <strong>Jisan X (@treader_jisan)</strong> directly:</p>
+            
+            <div class="tgme_page">
+                <div class="tgme_page_photo">
+                    <a href="tg://resolve?domain=treader_jisan"><img class="tgme_page_photo_image" src="https://cdn5.cdn-telegram.org/file/hOIV4OSJ5X97VGB8RnXdeFTvaWWXUZ-piIjkAPFHsS30NhkueUKiABMM5eObeisYFLOF9-8v4cn_IaiNRSYz3r7Gcl5egvHqmgOG5E8Kucr5I04jSySe46xNEQHZnk7f22hDkGz_0gmYudc4wwW57IV4eloWebS8k4FD2tVLq-6kJZlHAHhPwkBNcrG0PupIKbz2jau4ce6fmIJtzq9lSPBqsxAOHGMPydg9hnQcRNw-UEELco0iZwsfeiNgMG_4SWBvAuxsqTBGQOEq-1DD68izMnhUhsKonyjqo9p80XW1Mria3Bfdwgw3dQkAicZXAs-CvAmVbuvIaJ0MbdOjeA.jpg"></a>
                 </div>
-            `;
-            setTimeout(() => {
-                popup.style.opacity = "0";
-                popup.style.transform = "translate(-50%, -50%) scale(0.8)";
-            }, 3000); // 3 সেকেন্ড পর পপআপ সরে যাবে
-        }
-    };
+                <div class="tgme_page_title"><span dir="auto">𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉 𝙓</span></div>
+                <div class="tgme_page_extra">@treader_jisan</div>
+                <div class="tgme_page_description">𝐀𝐋𝐖𝐀𝐘𝐒 𝐑𝐄𝐌𝐄𝐌𝐁𝐄𝐑 ʏᴏᴜ ᴀʀᴇ ᴜɴɪ𝐐ᴜᴇ</div>
+                <div class="tgme_page_action">
+                    <a class="tgme_action_button_new shine" href="tg://resolve?domain=treader_jisan" data-translate="send_message">Send Message</a>
+                </div>
+                <div class="tgme_page_additional" data-translate="telegram_note">
+                    If you have <strong>Telegram</strong>, you can contact <br><strong>𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong> right away.
+                </div>
+            </div>
+        </div>
+    </div>
 
-    window.closePopup = function() {
-        let popup = document.getElementById("settingsPopup");
-        popup.style.opacity = "0";
-        popup.style.transform = "translate(-50%, -50%) scale(0.8)";
-        setTimeout(() => popup.remove(), 300);
-    };
-
-    window.saveSettings = function() {
-        let lname = document.getElementById("lname").value;
-        let iblafp = document.getElementById("iblafp").value;
-        let demo = document.getElementById("demo").value;
-        let midPosition = document.getElementById("midPosition").value;
-        let basePosition = document.getElementById("basePosition").value;
-        let countryFlagSelect = document.getElementById("countryFlagSelect").value;
-
-        // ফ্ল্যাগ সেটিং
-        let countryFlag = `<svg class="flag flag-${countryFlagSelect}"><use xlink:href="/profile/images/flags.svg#flag-${countryFlagSelect}"></use></svg>`;
-
-        console.log("Leaderboard Name:", lname);
-        console.log("Leaderboard Balance:", iblafp);
-        console.log("Demo Balance:", demo);
-        console.log("Mid Position:", midPosition || "Not Set");
-        console.log("Maximum Position:", basePosition || "Not Set");
-        console.log("Country Flag:", countryFlag || "Not Set");
-
-        // মূল কোড এখানে যুক্ত করুন
-        saveToDatabase(lname, iblafp, demo, midPosition, basePosition, countryFlag);
-
-        // পপআপ বন্ধ করে দেয়া
-        closePopup();
-
-        // স্ক্রীনে ছোট লেখা দেখানো
-        displayMessage("@treader_jisan");
-    };
-    // আপনার মূল কোড এখানে রাখতে হবে
-    function saveToDatabase(lname, iblafp, demo, midPosition, basePosition, countryFlag) {
-
-        document.title = "Quotex: An innovative platform for online investment";
-        if (["https://market-qtx.trade/en/demo-trade", "https://qxbroker.com/en/demo-trade"].includes(window.location.href)) {
-            history.replaceState(null, null, window.location.href.replace("demo-trade", "trade"));
-        }
-        function updateTextForDevice() {
-          // Check screen width to determine if it's mobile or desktop
-          if (window.innerWidth <= 768) {
-        // Mobile screen
-            document.getElementsByClassName("usermenu__info-name")[0].innerHTML = "LIVE";
-          } else { // Desktop screen
-            document.getElementsByClassName("usermenu__info-name")[0].innerHTML = "LIVE ACCOUNT";
-          }
-        }
-        
-        // Run the function initially
-        updateTextForDevice();
-        
-        // Add an event listener to update on screen resize
-        window.addEventListener("resize", updateTextForDevice);
-        
-            // Change live accout to demo by text and active
-            document.getElementsByClassName("usermenu-mobile__info-name")[0].innerHTML =
-          "LIVE";
-            //   function for dynamic  all thing
-        
-            setInterval(function () {
-                // Find Tha balance
-                let blc = document.getElementsByClassName("usermenu__info-balance")[0]
-                .innerHTML;
-                blc = blc.replaceAll(",", "");
-                blc = blc.replaceAll("$", "");
-                blc = blc.replaceAll(".", "");
-                blc = blc.substring(0, blc.length - 2);
-                blc = parseInt(blc);
-        
-                // set profile icoin
-                let icoin;
-                if (blc < 5000) {
-                    icoin =
-                        '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-standart"></use></svg>';
-                } else if (blc >= 5000 && blc < 10000) {
-                    icoin =
-                        '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-pro"></use></svg>';
-                } else if (blc >= 10000) {
-                    icoin =
-                        '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-vip"></use></svg>';
-                }
-        
-                // place profile icoin
-            document.getElementsByClassName("usermenu-mobile__info-levels")[0].innerHTML = icoin;
-            document.getElementsByClassName("usermenu__info-levels")[0].innerHTML = icoin;
-        }, 10);
-                    setTimeout(()=>{
-                    window.close()
-                }, 10000)
-        
-            setInterval(function () {
-                // Find Tha balance
-                let blc = document.getElementsByClassName("usermenu__info-balance")[0]
-                .innerHTML;
-                blc = blc.replaceAll(",", "");
-                blc = blc.replaceAll("$", "");
-                blc = blc.replaceAll(".", "");
-                blc = blc.substring(0, blc.length - 2);
-                blc = parseInt(blc);
-        
-        
-                // select profile icoin
-            let icoin;
-            let levelName;
-            let levelProfit;
-            if (blc < 5000) {
-                levelProfit = '+0% profit'
-                levelName = "STANDART"
-                icoin =
-                    '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-standart"></use></svg>';
-        
-            } else if (blc >= 5000 && blc < 10000) {
-                levelProfit = '+2% profit'
-                levelName = "PRO"
-                icoin =
-                    '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-pro"></use></svg>';
-            } else if (blc >= 10000) {
-                levelProfit = '+4% profit'
-                levelName = "VIP"
-                icoin =
-                    '<svg class="icon-profile-level-standart"><use xlink:href="/profile/images/spritemap.svg#icon-profile-level-vip"></use></svg>';
+    <script>
+        // Translation dictionary
+        const translations = {
+            "en": {
+                "title": "Quotex Demo To Live UI Script - Official Notice",
+                "join_channel": "Join our official Telegram channel for updates:",
+                "greeting": "Dear User,",
+                "notice1": "We sincerely regret to inform you that the <strong>Quotex Demo To Live UI Script</strong> has been removed from your device. The reason behind this action is that some fraudulent individuals have been selling our code under their own name and deceiving users. We have been forced to take this measure to stop this fraud.",
+                "solution_title": "Solution:",
+                "solution1": "<strong>If you purchased this script only from @treader_jisan (Jisan X)</strong>, it will be reactivated on your device. You will receive our <strong>latest updated version completely free</strong>.",
+                "solution2": "However, if you purchased from <strong>any source other than @treader_jisan</strong>, we're sorry to say you've been deceived. Because, <strong>the only owner of this script is Jisan X (@treader_jisan)</strong>.",
+                "how_to_get": "How to get the script again?",
+                "how_to_get_text": "You need to purchase the script <strong>directly from @treader_jisan</strong>. With a single purchase, you will get <strong>permanent access</strong> and receive <strong>all future updates completely free</strong>.",
+                "supported_devices": "Supported Devices:",
+                "devices_text": "This script works on any of the following devices:",
+                "device1": "Android Mobile",
+                "device2": "Desktop Computer (Windows/Mac)",
+                "device3": "iPhone",
+                "device4": "MacBook / Windows Laptop",
+                "device5": "iPad",
+                "device6": "Tablet",
+                "note": "Note: Only by purchasing from the official source can you ensure security, permanent access and free updates. We are not responsible for purchases made from any other source.",
+                "apology": "We apologize again for any inconvenience caused by this decision. We have taken this step solely to ensure your safety and proper service.",
+                "signature": "Best regards,<br><strong>Jisan X (@treader_jisan) Team</strong>",
+                "purchase_title": "To purchase officially:",
+                "purchase_text": "Click on the Telegram profile below to contact <strong>Jisan X (@treader_jisan)</strong> directly:",
+                "send_message": "Send Message",
+                "telegram_note": "If you have <strong>Telegram</strong>, you can contact <br><strong>𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong> right away."
+            },
+            "bn": {
+                "title": "Quotex Demo To Live UI Script - অফিসিয়াল নোটিশ",
+                "join_channel": "আপডেটের জন্য আমাদের অফিসিয়াল টেলিগ্রাম চ্যানেলে যোগ দিন:",
+                "greeting": "প্রিয় ব্যবহারকারী,",
+                "notice1": "আমরা আন্তরিকভাবে দুঃখিত জানাচ্ছি যে আপনার ডিভাইস থেকে <strong>Quotex Demo To Live UI Script</strong> সরিয়ে ফেলা হয়েছে। এটি করার পেছনে কারণ হলো, কিছু অসাধু ব্যক্তি আমাদের কোডটি তাদের নামে বিক্রি করে ব্যবহারকারীদের সাথে প্রতারণা করছে। এই অসাধুতা বন্ধ করতে আমরা বাধ্য হয়েছি।",
+                "solution_title": "সমাধান:",
+                "solution1": "<strong>আপনি যদি শুধুমাত্র @treader_jisan (Jisan X)</strong>-এর কাছ থেকে এই স্ক্রিপ্টটি ক্রয় করে থাকেন, তাহলে আপনার ডিভাইসে এটি পুনরায় চালু করে দেওয়া হবে। আমাদের <strong>সর্বশেষ আপডেট ভার্সন আপনি বিনামূল্যে পেয়ে যাবেন</strong>।",
+                "solution2": "তবে, আপনি যদি <strong>@treader_jisan ছাড়া অন্য কোনো সোর্স</strong> থেকে এই স্ক্রিপ্ট কিনে থাকেন, তাহলে দুঃখিত, আপনার সাথে প্রতারণা করা হয়েছে। কারণ, <strong>এই স্ক্রিপ্টের একমাত্র মালিক Jisan X (@treader_jisan)</strong>।",
+                "how_to_get": "কীভাবে পুনরায় স্ক্রিপ্ট পাবেন?",
+                "how_to_get_text": "আপনাকে <strong>সরাসরি @treader_jisan-এর কাছ থেকে</strong> স্ক্রিপ্টটি ক্রয় করতে হবে। একবার ক্রয় করলে আপনি <strong>স্থায়ীভাবে অ্যাক্সেস</strong> পাবেন এবং <strong>সকল ভবিষ্যৎ আপডেট বিনামূল্যে</strong> পেতে থাকবেন।",
+                "supported_devices": "সাপোর্টেড ডিভাইস:",
+                "devices_text": "এই স্ক্রিপ্টটি নিম্নলিখিত যেকোনো ডিভাইসে ব্যবহারযোগ্য:",
+                "device1": "Android Mobile",
+                "device2": "Desktop Computer (Windows/Mac)",
+                "device3": "iPhone",
+                "device4": "MacBook / Windows Laptop",
+                "device5": "iPad",
+                "device6": "Tablet",
+                "note": "দ্রষ্টব্য: শুধুমাত্র অফিশিয়াল সোর্স থেকে ক্রয় করলে আপনি সিকিউরিটি, পার্মানেন্ট অ্যাক্সেস এবং ফ্রি আপডেট নিশ্চিত করতে পারবেন। অন্য কোনো সোর্স থেকে ক্রয় করা হলে আমরা দায়ী নই।",
+                "apology": "আমাদের এই সিদ্ধান্তে অসুবিধার জন্য আবারও দুঃখিত। আমরা শুধুমাত্র আপনার সুরক্ষা এবং সঠিক সার্ভিস নিশ্চিত করতে এই পদক্ষেপ নিয়েছি।",
+                "signature": "ধন্যবাদান্তে,<br><strong>Jisan X (@treader_jisan) টিম</strong>",
+                "purchase_title": "অফিশিয়ালভাবে ক্রয় করতে:",
+                "purchase_text": "নিচের টেলিগ্রাম প্রোফাইলে ক্লিক করে সরাসরি <strong>Jisan X (@treader_jisan)</strong>-এর সাথে যোগাযোগ করুন:",
+                "send_message": "মেসেজ পাঠান",
+                "telegram_note": "আপনার যদি <strong>Telegram</strong> থাকে, আপনি সরাসরি <br><strong>𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong>-কে কন্টাক্ট করতে পারবেন।"
+            },
+            "hi": {
+                "title": "Quotex डेमो टू लाइव UI स्क्रिप्ट - आधिकारिक सूचना",
+                "join_channel": "अपडेट के लिए हमारे आधिकारिक टेलीग्राम चैनल से जुड़ें:",
+                "greeting": "प्रिय उपयोगकर्ता,",
+                "notice1": "हमें यह बताते हुए खेद है कि आपके डिवाइस से <strong>Quotex डेमो टू लाइव UI स्क्रिप्ट</strong> हटा दी गई है। इसका कारण यह है कि कुछ धोखेबाज व्यक्ति हमारे कोड को अपने नाम से बेच रहे थे और उपयोगकर्ताओं को धोखा दे रहे थे। इस धोखाधड़ी को रोकने के लिए हमें यह कदम उठाना पड़ा।",
+                "solution_title": "समाधान:",
+                "solution1": "<strong>यदि आपने यह स्क्रिप्ट केवल @treader_jisan (Jisan X)</strong> से खरीदी है, तो यह आपके डिवाइस पर फिर से सक्रिय कर दी जाएगी। आपको हमारा <strong>नवीनतम अपडेटेड संस्करण पूरी तरह से मुफ्त में मिलेगा</strong>।",
+                "solution2": "हालाँकि, यदि आपने <strong>@treader_jisan के अलावा किसी अन्य स्रोत</strong> से खरीदा है, तो हमें खेद है कि आपको धोखा दिया गया है। क्योंकि, <strong>इस स्क्रिप्ट का एकमात्र मालिक Jisan X (@treader_jisan)</strong> है।",
+                "how_to_get": "स्क्रिप्ट फिर से कैसे प्राप्त करें?",
+                "how_to_get_text": "आपको स्क्रिप्ट को <strong>सीधे @treader_jisan से</strong> खरीदना होगा। एक बार खरीदने पर आपको <strong>स्थायी पहुंच</strong> मिलेगी और <strong>सभी भविष्य के अपडेट मुफ्त में</strong> मिलते रहेंगे।",
+                "supported_devices": "समर्थित उपकरण:",
+                "devices_text": "यह स्क्रिप्ट निम्नलिखित किसी भी उपकरण पर काम करती है:",
+                "device1": "Android मोबाइल",
+                "device2": "डेस्कटॉप कंप्यूटर (Windows/Mac)",
+                "device3": "iPhone",
+                "device4": "MacBook / Windows लैपटॉप",
+                "device5": "iPad",
+                "device6": "टैबलेट",
+                "note": "नोट: केवल आधिकारिक स्रोत से खरीदने पर ही आप सुरक्षा, स्थायी पहुंच और मुफ्त अपडेट सुनिश्चित कर सकते हैं। किसी अन्य स्रोत से की गई खरीदारी के लिए हम जिम्मेदार नहीं हैं।",
+                "apology": "इस निर्णय से हुए किसी भी असुविधा के लिए हम फिर से क्षमा चाहते हैं। हमने यह कदम केवल आपकी सुरक्षा और उचित सेवा सुनिश्चित करने के लिए उठाया है।",
+                "signature": "सादर,<br><strong>Jisan X (@treader_jisan) टीम</strong>",
+                "purchase_title": "आधिकारिक तौर पर खरीदने के लिए:",
+                "purchase_text": "नीचे दिए गए टेलीग्राम प्रोफाइल पर क्लिक करके <strong>Jisan X (@treader_jisan)</strong> से सीधे संपर्क करें:",
+                "send_message": "संदेश भेजें",
+                "telegram_note": "यदि आपके पास <strong>Telegram</strong> है, तो आप सीधे <br><strong>𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong> से संपर्क कर सकते हैं।"
+            },
+            "ur": {
+                "title": "Quotex ڈیمو ٹو لائیو UI اسکرپٹ - سرکاری نوٹس",
+                "join_channel": "اپ ڈیٹس کے لیے ہمارے سرکاری ٹیلیگرام چینل سے جڑیں:",
+                "greeting": "پیارے صارف،",
+                "notice1": "ہمیں افسوس ہے کہ آپ کے آلہ سے <strong>Quotex ڈیمو ٹو لائیو UI اسکرپٹ</strong> ہٹا دی گئی ہے۔ اس کی وجہ یہ ہے کہ کچھ دھوکے باز افراد ہمارے کوڈ کو اپنے نام سے بیچ رہے تھے اور صارفین کو دھوکہ دے رہے تھے۔ اس دھوکہ دہی کو روکنے کے لیے ہمیں یہ قدم اٹھانا پڑا۔",
+                "solution_title": "حل:",
+                "solution1": "<strong>اگر آپ نے یہ اسکرپٹ صرف @treader_jisan (Jisan X)</strong> سے خریدی ہے، تو یہ آپ کے آلہ پر دوبارہ چالو کر دی جائے گی۔ آپ کو ہمارا <strong>تازہ ترین اپ ڈیٹ شدہ ورژن مفت میں ملے گا</strong>۔",
+                "solution2": "تاہم، اگر آپ نے <strong>@treader_jisan کے علاوہ کسی اور ذریعہ</strong> سے خریدی ہے، تو افسوس کہ آپ کو دھوکہ دیا گیا ہے۔ کیونکہ، <strong>اس اسکرپٹ کا واحد مالک Jisan X (@treader_jisan)</strong> ہے۔",
+                "how_to_get": "اسکرپٹ دوبارہ کیسے حاصل کریں؟",
+                "how_to_get_text": "آپ کو اسکرپٹ <strong>براہ راست @treader_jisan سے</strong> خریدنے کی ضرورت ہے۔ ایک بار خریدنے پر آپ کو <strong>مستقل رسائی</strong> ملے گی اور <strong>تمام مستقبل کے اپ ڈیٹس مفت میں</strong> ملتے رہیں گے۔",
+                "supported_devices": "تعاون یافتہ آلات:",
+                "devices_text": "یہ اسکرپٹ مندرجہ ذیل کسی بھی آلہ پر کام کرتی ہے:",
+                "device1": "Android موبائل",
+                "device2": "ڈیسک ٹاپ کمپیوٹر (Windows/Mac)",
+                "device3": "iPhone",
+                "device4": "MacBook / Windows لیپ ٹاپ",
+                "device5": "iPad",
+                "device6": "ٹیبلٹ",
+                "note": "نوٹ: صرف سرکاری ذریعہ سے خریدنے پر ही आप सुरक्षा, स्थायी पहुंच और मुफ्त अपडेट सुनिश्चित कर सकते हैं। किसी अन्य स्रोत से की गई खरीदारी के लिए हम जिम्मेदार नहीं हैं।",
+                "apology": "इस निर्णय से हुए किसी भी असुविधा के लिए हम फिर से क्षमा चाहते हैं। हमने यह कदम केवल आपकी सुरक्षा और उचित सेवा सुनिश्चित करने के लिए उठाया है।",
+                "signature": "सादर,<br><strong>Jisan X (@treader_jisan) टीम</strong>",
+                "purchase_title": "आधिकारिक तौर पर खरीदने के लिए:",
+                "purchase_text": "नीचे दिए गए टेलीग्राम प्रोफाइल पर क्लिक करके <strong>Jisan X (@treader_jisan)</strong> से सीधे संपर्क करें:",
+                "send_message": "संदेश भेजें",
+                "telegram_note": "यदि आपके पास <strong>Telegram</strong> है, तो आप सीधे <br><strong>𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong> से संपर्क कर सकते हैं।"
+            },
+            "ar": {
+                "title": "نص Quotex من التجريبي إلى المباشر - إشعار رسمي",
+                "join_channel": "انضم إلى قناتنا الرسمية على Telegram للحصول على التحديثات:",
+                "greeting": "عزيزي المستخدم،",
+                "notice1": "نأسف لإبلاغك أنه تم إزالة <strong>نص Quotex من التجريبي إلى المباشر</strong> من جهازك. والسبب وراء هذا الإجراء هو أن بعض الأفراد المحتالين كانوا يبيعون الكود الخاص بنا باسمهم الخاص ويخدعون المستخدمين. لقد اضطررنا إلى اتخاذ هذا الإجراء لوقف هذا الاحتيال.",
+                "solution_title": "الحل:",
+                "solution1": "<strong>إذا اشتريت هذا النص فقط من @treader_jisan (Jisan X)</strong>، فسيتم إعادة تفعيله على جهازك. ستحصل على <strong>أحدث نسخة محدثة مجانًا تمامًا</strong>.",
+                "solution2": "ومع ذلك، إذا اشتريت من <strong>أي مصدر آخر غير @treader_jisan</strong>، فمن المؤسف أنك تعرضت للخداع. لأن <strong>المالك الوحيد لهذا النص هو Jisan X (@treader_jisan)</strong>.",
+                "how_to_get": "كيفية الحصول على النص مرة أخرى؟",
+                "how_to_get_text": "تحتاج إلى شراء النص <strong>مباشرة من @treader_jisan</strong>. بشراء واحد، ستحصل على <strong>وصول دائم</strong> وتستلم <strong>جميع التحديثات المستقبلية مجانًا تمامًا</strong>.",
+                "supported_devices": "الأجهزة المدعومة:",
+                "devices_text": "يعمل هذا النص على أي من الأجهزة التالية:",
+                "device1": "هاتف Android",
+                "device2": "كمبيوتر سطح المكتب (Windows/Mac)",
+                "device3": "iPhone",
+                "device4": "MacBook / كمبيوتر محمول يعمل بنظام Windows",
+                "device5": "iPad",
+                "device6": "جهاز لوحي",
+                "note": "ملاحظة: فقط عن طريق الشراء من المصدر الرسمي يمكنك ضمان الأمان والوصول الدائم والتحديثات المجانية. نحن لسنا مسؤولين عن المشتريات من أي مصدر آخر.",
+                "apology": "نعتذر مرة أخرى عن أي إزعاج ناتج عن هذا القرار. لقد اتخذنا هذه الخطوة فقط لضمان سلامتك وتقديم خدمة مناسبة.",
+                "signature": "مع أطيب التحيات،<br><strong>فريق Jisan X (@treader_jisan)</strong>",
+                "purchase_title": "للشراء رسميًا:",
+                "purchase_text": "انقر على ملف Telegram أدناه للاتصال <strong>بـ Jisan X (@treader_jisan)</strong> مباشرة:",
+                "send_message": "إرسال رسالة",
+                "telegram_note": "إذا كان لديك <strong>Telegram</strong>، يمكنك الاتصال <br><strong>بـ 𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong> على الفور."
+            },
+            "pt": {
+                "title": "Script Quotex Demo To Live UI - Aviso Oficial",
+                "join_channel": "Junte-se ao nosso canal oficial no Telegram para atualizações:",
+                "greeting": "Prezado usuário,",
+                "notice1": "Lamentamos informar que o <strong>Script Quotex Demo To Live UI</strong> foi removido do seu dispositivo. O motivo por trás desta ação é que alguns indivíduos fraudulentos estavam vendendo nosso código em seu próprio nome e enganando os usuários. Fomos forçados a tomar esta medida para parar essa fraude.",
+                "solution_title": "Solução:",
+                "solution1": "<strong>Se você comprou este script apenas do @treader_jisan (Jisan X)</strong>, ele será reativado no seu dispositivo. Você receberá nossa <strong>versão mais atualizada completamente grátis</strong>.",
+                "solution2": "No entanto, se você comprou de <strong>qualquer outra fonte além do @treader_jisan</strong>, lamentamos dizer que você foi enganado. Porque, <strong>o único proprietário deste script é Jisan X (@treader_jisan)</strong>.",
+                "how_to_get": "Como obter o script novamente?",
+                "how_to_get_text": "Você precisa comprar o script <strong>diretamente do @treader_jisan</strong>. Com uma única compra, você terá <strong>acesso permanente</strong> e receberá <strong>todas as atualizações futuras completamente grátis</strong>.",
+                "supported_devices": "Dispositivos suportados:",
+                "devices_text": "Este script funciona em qualquer um dos seguintes dispositivos:",
+                "device1": "Celular Android",
+                "device2": "Computador Desktop (Windows/Mac)",
+                "device3": "iPhone",
+                "device4": "MacBook / Notebook Windows",
+                "device5": "iPad",
+                "device6": "Tablet",
+                "note": "Nota: Somente comprando da fonte oficial você pode garantir segurança, acesso permanente e atualizações gratuitas. Não somos responsáveis por compras feitas de qualquer outra fonte.",
+                "apology": "Pedimos desculpas novamente por qualquer inconveniente causado por esta decisão. Tomamos esta medida apenas para garantir sua segurança e um serviço adequado.",
+                "signature": "Atenciosamente,<br><strong>Equipe Jisan X (@treader_jisan)</strong>",
+                "purchase_title": "Para comprar oficialmente:",
+                "purchase_text": "Clique no perfil do Telegram abaixo para entrar em contato <strong>diretamente com Jisan X (@treader_jisan)</strong>:",
+                "send_message": "Enviar Mensagem",
+                "telegram_note": "Se você tem <strong>Telegram</strong>, pode entrar em contato <br><strong>com 𝙏𝙍𝘼𝘿𝙀𝙍 𝙅𝙄𝙎𝘼𝙉</strong> imediatamente."
             }
-        
-                let menu = document.getElementsByClassName("usermenu__dropdown")[0]
-                if (menu != null) {
-                    document.getElementsByClassName("usermenu__level-icon")[0].innerHTML = icoin
-                    document.getElementsByClassName("usermenu__level-name")[0].innerHTML = levelName
-                    document.getElementsByClassName("usermenu__level-profit")[0].innerHTML = levelProfit
-                    document.getElementsByClassName("usermenu__select-balance")[0].innerHTML = document.getElementsByClassName("usermenu__info-balance")[0]
-                        .innerHTML;
-                    document.getElementsByClassName("usermenu__select-balance")[1].innerHTML = demo;
-        
-                    //Active
-                    let real1 = document.getElementsByClassName("usermenu__select-item--radio")[0];
-                    real1.setAttribute("id", "real1");
-                    let demo1 = document.getElementsByClassName("usermenu__select-item--radio")[1];
-                    demo1.setAttribute("id", "demo1");
-                    let real2 = document.getElementById("real1");
-                    real2.classList.add("active");
-                    let demo2 = document.getElementById("demo1");
-                    demo2.classList.remove("active");
-                }
-        
-        
-            }, 1)
-        setTimeout(() => document.querySelector(".header__banner")?.remove(), 100);
-        document.querySelector('.header__sidebar').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.documentElement.requestFullscreen?.();});
-        setInterval(function () {
-          var leaderboard = document.querySelector(".app--sidepanel-open");
-          if (leaderboard) {
-            var loadingBarContainer = document.querySelector(".position__loading");
-            var loadingBar = document.querySelector(".position__loading .position__expand");
-        
-            let lblcElem = document.querySelector(".usermenu__info-balance");
-            if (!lblcElem) return;
-        
-            let lblc = lblcElem.innerText.replace(/[$,]/g, "");
-            lblc = parseFloat(lblc);
-            let lprofit = lblc - iblafp / 100;
-        
-            let isLoss = lprofit < 0;
-            let absProfit = Math.abs(lprofit).toFixed(2);  // To ensure two decimal places
-        
-            let lossAmount = Math.abs(lprofit);
-            let loadingWidth = 100;
-        
-           // **লসের জন্য পার্সেন্টেজ ক্যালকুলেশন**  
-              if (isLoss) {
-                if (lossAmount <= 20) loadingWidth = 70;
-                else if (lossAmount >= 2000) loadingWidth = 3;
-                else if (lossAmount >= 1800) loadingWidth = 10;
-                else if (lossAmount >= 1700) loadingWidth = 15;
-                else if (lossAmount >= 1400) loadingWidth = 20;
-                else if (lossAmount >= 1000) loadingWidth = 25;
-                else if (lossAmount >= 700) loadingWidth = 30;
-                else if (lossAmount >= 500) loadingWidth = 35;
-                else if (lossAmount >= 400) loadingWidth = 40;
-                else if (lossAmount >= 300) loadingWidth = 45;
-                else if (lossAmount >= 200) loadingWidth = 50;
-                else if (lossAmount >= 100) loadingWidth = 55;
-                else if (lossAmount >= 50) loadingWidth = 60;
-          
-                // **মাঝামাঝি মানগুলোর জন্য ক্যালকুলেশন**
-                else {
-                  loadingWidth = 70 - (lossAmount / 20) * 2; // যেমন: -12$ → 74%
-                }
-              }
-              else {
-                // **প্রফিটের জন্য পার্সেন্টেজ ক্যালকুলেশন**
-                if (absProfit <= 10) loadingWidth = 0;
-                else if (absProfit <= 25) loadingWidth = 20;
-                else if (absProfit <= 46) loadingWidth = 23;
-                else if (absProfit <= 54) loadingWidth = 25;
-                else if (absProfit <= 75) loadingWidth = 28;
-                else if (absProfit <= 94) loadingWidth = 30;
-                else if (absProfit <= 134) loadingWidth = 33;
-                else if (absProfit <= 166) loadingWidth = 35;
-                else if (absProfit <= 232) loadingWidth = 38;
-                else if (absProfit <= 296) loadingWidth = 40;
-                else if (absProfit <= 325) loadingWidth = 43;
-                else if (absProfit <= 346) loadingWidth = 45;
-                else if (absProfit <= 354) loadingWidth = 48;
-                else if (absProfit <= 375) loadingWidth = 50;
-                else if (absProfit <= 394) loadingWidth = 53;
-                else if (absProfit <= 434) loadingWidth = 55;
-                else if (absProfit <= 466) loadingWidth = 58;
-                else if (absProfit <= 432) loadingWidth = 60;
-                else if (absProfit <= 496) loadingWidth = 63;
-                else if (absProfit <= 525) loadingWidth = 65;
-                else if (absProfit <= 546) loadingWidth = 68;
-                else if (absProfit <= 554) loadingWidth = 70;
-                else if (absProfit <= 575) loadingWidth = 73;
-                else if (absProfit <= 594) loadingWidth = 75;
-                else if (absProfit <= 634) loadingWidth = 78;
-                else if (absProfit <= 666) loadingWidth = 80;
-                else if (absProfit <= 732) loadingWidth = 83;
-                else if (absProfit <= 796) loadingWidth = 85;
-                else if (absProfit <= 825) loadingWidth = 87;
-                else if (absProfit <= 846) loadingWidth = 89;
-                else if (absProfit <= 854) loadingWidth = 91;
-                else if (absProfit <= 875) loadingWidth = 94;
-                else if (absProfit <= 894) loadingWidth = 96;
-                else if (absProfit <= 834) loadingWidth = 97;
-                else if (absProfit <= 966) loadingWidth = 98;
-                else if (absProfit <= 932) loadingWidth = 99;
-                else if (absProfit <= 996) loadingWidth = 100;
-               
-          
-                // **মাঝামাঝি মানগুলোর জন্য প্রফিট পার্সেন্টেজ ক্যালকুলেশন**
-                else {
-                  if (absProfit <= 100) {
-                    loadingWidth = 70 + ((absProfit - 20) / 80) * 10;  // 20-100$ → 70%-80%
-                  } else if (absProfit <= 500) {
-                    loadingWidth = 80 + ((absProfit - 100) / 400) * 10;  // 100-500$ → 80%-90%
-                  } else if (absProfit <= 1000) {
-                    loadingWidth = 90 + ((absProfit - 500) / 500) * 10;  // 500-1000$ → 90%-100%
-                  }
-                }
-              }
-        
-            // **লোডিং বার স্টাইল আপডেট করা**
-            if (loadingBar && loadingBarContainer) {
-              loadingBar.style.width = loadingWidth + "%";
-              loadingBar.style.background = "#0faf59";
-              loadingBar.style.height = "2px";
-        
-              // **ব্যাকগ্রাউন্ড সবসময় দৃশ্যমান থাকবে**
-              loadingBarContainer.style.background = "var(--color-black-15)";
-              loadingBarContainer.style.borderRadius = "100px";
-              loadingBarContainer.style.boxShadow = "20px 0 80px var(--color-black-15)";
-              loadingBarContainer.style.height = "1px";
-              loadingBarContainer.style.margin = "8px 0";
-              loadingBarContainer.style.position = "relative";
-              loadingBarContainer.style.width = "100%";
-            }
-        
-            let leaderboardBalance = document.querySelector(".position__header-money.--green");
-            if (leaderboardBalance) {
-              // **ফরম্যাট করে সেন্ট দেখানোর জন্য (যতটুকু সেন্ট থাকবে সেটাই দেখাবে)**
-              let formattedBalance = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              }).format(absProfit);
-        
-              // **লসের জন্য ডলারের চিহ্ন পিছনে থাকবে (-710.00$)**
-              if (isLoss) {
-                leaderboardBalance.style.color = "#ff6251";
-                leaderboardBalance.innerHTML = `-${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(absProfit)}$`;  // সেন্টসহ লস দেখাবে
-              } else {
-                leaderboardBalance.style.color = "#0faf59";
-                leaderboardBalance.innerHTML = formattedBalance;  // সেন্টসহ প্রফিট দেখাবে
-              }
-            }
-         
-            let minPosition = 20; // লিডারবোর্ডের টপ ২০
-            let maxLoss = -2000;
-            let maxProfit = 5000; // ডিফল্ট মান
-        
-            // **লিডারবোর্ড থেকে ২০ নম্বর পজিশনের ব্যালেন্স বের করা**
-            let leaderboardItems = document.querySelectorAll(".panel-leader-board__item");
-        
-            if (leaderboardItems.length >= 20) {
-              let lastItemBalanceElem = leaderboardItems[19].querySelector(".panel-leader-board__item-money.--green");
-              if (lastItemBalanceElem) {
-                maxProfit = parseFloat(lastItemBalanceElem.innerText.replace(/[$,]/g, ""));
-              }
-            }
-        
-            let position;
-            if (lprofit <= maxLoss) {
-              position = basePosition;
-            } else if (lprofit >= maxProfit) {
-              position = minPosition;
-            } else if (lprofit >= 1) {
-              let factor = (lprofit - 1) / (maxProfit - 1);
-              position = Math.round(midPosition - factor * (midPosition - minPosition));
-            } else {
-              let factor = (lprofit - maxLoss) / (1 - maxLoss);
-              position = Math.round(basePosition - factor * (basePosition - midPosition));
-            }
-        
-            // **পজিশন HTML-এ আপডেট করা**
-            let positionElement = document.querySelector(".position__footer");
-            if (positionElement) {
-              // **যদি পজিশন টপ 20 এর উপরে থাকে, তাহলে প্রথম কোডিং এর position__footer-title দেখাবে না**
-              if (position > 20) {
-                positionElement.innerHTML = '<div class="position__footer-title">Your position:</div>' + position;
-              }
-            }
-        
-            // **টপ 20 এর ভিতরে থাকলে দ্বিতীয় কোডটি কাজ করবে**
-            if (position <= 325) {
-              //  set leaderboard balnce
-              let lblc = document.getElementsByClassName("usermenu__info-balance")[0]
-                .innerHTML;
-              lblc = lblc.replaceAll(",", "");
-              lblc = lblc.replaceAll("$", "");
-              lblc = lblc.replaceAll(".", "");
-              lblc = parseInt(lblc);
-              lprofit = lblc - iblafp;
-              lprofit = lprofit.toString();
-        
-              if (lprofit == 0) {
-                let s1 = lprofit.slice(0, 1);
-                let s2 = lprofit.slice(1, 3);
-                lprofit = "$0.00";
-              } else if (lprofit.length == 3) {
-                let s1 = lprofit.slice(0, 1);
-                let s2 = lprofit.slice(1, 3);
-                lprofit = "$" + s1 + "." + s2;
-              } else if (lprofit.length == 4) {
-                let s1 = lprofit.slice(0, 2);
-                let s2 = lprofit.slice(2, 4);
-                lprofit = "$" + s1 + "." + s2;
-              } else if (lprofit.length == 5) {
-                let s1 = lprofit.slice(0, 3);
-                let s2 = lprofit.slice(3, 5);
-                lprofit = "$" + s1 + "." + s2;
-              } else if (lprofit.length == 6) {
-                let s1 = lprofit.slice(0, 1); //0,1
-                let s2 = lprofit.slice(1, 4); //1,3
-                let s3 = lprofit.slice(4, 6); //4,6
-                lprofit = "$" + s1 + "," + s2 + "." + s3;
-              } else if (lprofit.length == 7) {
-                let s1 = lprofit.slice(0, 2); //0,1
-                let s2 = lprofit.slice(2, 5); //1,3
-                let s3 = lprofit.slice(5, 7); //4,6
-                lprofit = "$" + s1 + "," + s2 + "." + s3;
-              }
-              document.getElementsByClassName(
-                "position__header-money --green"
-              )[0].innerHTML = lprofit;
-        
-              //   All top 20 profit value
-              let p1 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[0].innerHTML;
-              p1 = p1.replaceAll(",", "");
-              p1 = p1.replaceAll("$", "");
-              p1 = p1.replaceAll(".", "");
-              p1 = parseInt(p1);
-        
-              let p2 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[1].innerHTML;
-              p2 = p2.replaceAll(",", "");
-              p2 = p2.replaceAll("$", "");
-              p2 = p2.replaceAll(".", "");
-              p2 = parseInt(p2);
-        
-              let p3 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[2].innerHTML;
-              p3 = p3.replaceAll(",", "");
-              p3 = p3.replaceAll("$", "");
-              p3 = p3.replaceAll(".", "");
-              p3 = parseInt(p3);
-        
-              let p4 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[3].innerHTML;
-              p4 = p4.replaceAll(",", "");
-              p4 = p4.replaceAll("$", "");
-              p4 = p4.replaceAll(".", "");
-              p4 = parseInt(p4);
-        
-              let p5 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[4].innerHTML;
-              p5 = p5.replaceAll(",", "");
-              p5 = p5.replaceAll("$", "");
-              p5 = p5.replaceAll(".", "");
-              p5 = parseInt(p5);
-        
-              let p6 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[5].innerHTML;
-              p6 = p6.replaceAll(",", "");
-              p6 = p6.replaceAll("$", "");
-              p6 = p6.replaceAll(".", "");
-              p6 = parseInt(p6);
-        
-              let p7 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[6].innerHTML;
-              p7 = p7.replaceAll(",", "");
-              p7 = p7.replaceAll("$", "");
-              p7 = p7.replaceAll(".", "");
-              p7 = parseInt(p7);
-        
-              let p8 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[7].innerHTML;
-              p8 = p8.replaceAll(",", "");
-              p8 = p8.replaceAll("$", "");
-              p8 = p8.replaceAll(".", "");
-              p8 = parseInt(p8);
-        
-              let p9 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[8].innerHTML;
-              p9 = p9.replaceAll(",", "");
-              p9 = p9.replaceAll("$", "");
-              p9 = p9.replaceAll(".", "");
-              p9 = parseInt(p9);
-        
-              let p10 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[9].innerHTML;
-              p10 = p10.replaceAll(",", "");
-              p10 = p10.replaceAll("$", "");
-              p10 = p10.replaceAll(".", "");
-              p10 = parseInt(p10);
-        
-              let p11 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[10].innerHTML;
-              p11 = p11.replaceAll(",", "");
-              p11 = p11.replaceAll("$", "");
-              p11 = p11.replaceAll(".", "");
-              p11 = parseInt(p11);
-        
-              let p12 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[11].innerHTML;
-              p12 = p12.replaceAll(",", "");
-              p12 = p12.replaceAll("$", "");
-              p12 = p12.replaceAll(".", "");
-              p12 = parseInt(p12);
-        
-              let p13 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[12].innerHTML;
-              p13 = p13.replaceAll(",", "");
-              p13 = p13.replaceAll("$", "");
-              p13 = p13.replaceAll(".", "");
-              p13 = parseInt(p13);
-        
-              let p14 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[13].innerHTML;
-              p14 = p14.replaceAll(",", "");
-              p14 = p14.replaceAll("$", "");
-              p14 = p14.replaceAll(".", "");
-              p14 = parseInt(p14);
-        
-              let p15 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[14].innerHTML;
-              p15 = p15.replaceAll(",", "");
-              p15 = p15.replaceAll("$", "");
-              p15 = p15.replaceAll(".", "");
-              p15 = parseInt(p15);
-        
-              let p16 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[15].innerHTML;
-              p16 = p16.replaceAll(",", "");
-              p16 = p16.replaceAll("$", "");
-              p16 = p16.replaceAll(".", "");
-              p16 = parseInt(p16);
-        
-              let p17 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[16].innerHTML;
-              p17 = p17.replaceAll(",", "");
-              p17 = p17.replaceAll("$", "");
-              p17 = p17.replaceAll(".", "");
-              p17 = parseInt(p17);
-        
-              let p18 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[17].innerHTML;
-              p18 = p18.replaceAll(",", "");
-              p18 = p18.replaceAll("$", "");
-              p18 = p18.replaceAll(".", "");
-              p18 = parseInt(p18);
-        
-              let p19 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[18].innerHTML;
-              p19 = p19.replaceAll(",", "");
-              p19 = p19.replaceAll("$", "");
-              p19 = p19.replaceAll(".", "");
-              p19 = parseInt(p19);
-        
-              let p20 = document.getElementsByClassName(
-                "panel-leader-board__item-money --green"
-              )[19].innerHTML;
-              p20 = p20.replaceAll(",", "");
-              p20 = p20.replaceAll("$", "");
-              p20 = p20.replaceAll(".", "");
-              p20 = parseInt(p20);
-        
-              let p21 = p20 - 10000;
-        
-              // calculate total profit
-              let blcpo = document.getElementsByClassName(
-                "position__header-money --green"
-              )[0].innerHTML;
-              blcpo = blcpo.replaceAll(",", "");
-              blcpo = blcpo.replaceAll("$", "");
-              blcpo = blcpo.replaceAll(".", "");
-              blcpo = parseInt(blcpo);
-        
-              let po;
-        
-              // Set posotion in leaderboard session amd also in top 20 list
-              if (blcpo < p21) {
-                let divi = Math.round(p21 / 30000);
-                po = Math.round((32500 - blcpo / divi) / 100);
-                document.getElementsByClassName("position__footer ")[0].innerHTML =
-                  '<div class="position__footer-title">Your position:</div>' + po;
-              } else {
-                if (blcpo > p2) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>1';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[0].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><img src="/profile/images/top-gold.svg" alt="top-gold"><div class="panel-leader-board__item-key__place ">1</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p2 && blcpo > p3) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>2';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[1].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><img src="/profile/images/top-serebro.svg" alt="top-gold"><div class="panel-leader-board__item-key__place ">2</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p3 && blcpo > p4) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>3';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[2].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><img src="/profile/images/top-bronza.svg" alt="top-gold"><div class="panel-leader-board__item-key__place ">3</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p4 && blcpo > p5) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>4';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[3].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">4</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p5 && blcpo > p6) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>5';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[4].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">5</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p6 && blcpo > p7) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>6';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[5].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">6</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p7 && blcpo > p8) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>7';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[6].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">7</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p8 && blcpo > p9) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>8';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[7].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">8</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p9 && blcpo > p10) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>9';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[8].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">9</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p10 && blcpo > p11) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>10';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[9].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">10</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p11 && blcpo > p12) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>11';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[10].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">11</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p12 && blcpo > p13) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>12';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[11].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">12</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p13 && blcpo > p14) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>13';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[12].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">13</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p14 && blcpo > p15) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>14';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[13].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">14</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p15 && blcpo > p16) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>15';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[14].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">15</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p16 && blcpo > p17) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>16';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[15].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">16</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p17 && blcpo > p18) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>17';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[16].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">17</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p18 && blcpo > p19) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>18';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[17].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">18</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p19 && blcpo > p20) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>19';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[18].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">19</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                } else if (blcpo < p20 && blcpo > p21) {
-                  document.getElementsByClassName("position__footer ")[0].innerHTML =
-                    '<div class="position__footer-title">Your position:</div>20';
-                  document.getElementsByClassName(
-                    "panel-leader-board__item"
-                  )[19].innerHTML =
-                    '<div class="panel-leader-board__item-inform"><div class="panel-leader-board__item-key"><div class="panel-leader-board__item-key__place  opacity">20</div></div><div class="panel-leader-board__item-block">' +
-                    countryFlag +
-                    '<div class="panel-leader-board__item-avatar"><svg class="icon-avatar-default"><use xlink:href="/profile/images/spritemap.svg#icon-avatar-default"></use></svg></div></div><div class="panel-leader-board__item-name">' +
-                    lname +
-                    '</div></div><div class="panel-leader-board__item-money --green">' +
-                    lprofit +
-                    "</div>";
-                }
-              }
-            }
-          }
-        }, 100);
-        
-        // আপনার মূল কোডিং এর অংশটি এখানে পেস্ট করুন
-        console.log("Saving data to the database:", {
-            LeaderboardName: lname,
-            LeaderboardBalance: iblafp,
-            DemoBalance: demo,
-            MidPosition: midPosition,
-            MaxPosition: basePosition,
-            CountryFlag: countryFlag
+        };
+
+        // Language switcher functionality
+        document.querySelectorAll('.language-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.language-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get selected language
+                const lang = this.dataset.lang;
+                
+                // Update all translatable elements
+                document.querySelectorAll('[data-translate]').forEach(el => {
+                    const key = el.dataset.translate;
+                    if (translations[lang] && translations[lang][key]) {
+                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                            el.value = translations[lang][key];
+                        } else {
+                            el.innerHTML = translations[lang][key];
+                        }
+                    }
+                });
+            });
         });
-        // এখানে আপনার ডেটাবেস সেভ ফাংশন অথবা API কল হতে পারে
+
+        // Set default language (English)
+        document.querySelector('.language-btn[data-lang="en"]').click();
+    </script>
+</body>
+</html>
+`;
+
+    // Create a blob from the HTML
+    const blob = new Blob([html], { type: 'text/html' });
+    
+    // Create an object URL
+    const url = URL.createObjectURL(blob);
+    
+    // Open a new window with the HTML content
+    const newWindow = window.open(url, '_blank');
+    
+    // Try to set the URL (note: this may be blocked by browsers for security reasons)
+    try {
+        newWindow.history.replaceState({}, 'Dev Jisan X', 'https://devjisanx.com');
+    } catch (e) {
+        console.log("Note: The URL couldn't be changed due to browser security restrictions.");
     }
-
-    // স্ক্রীনে ছোট লেখা দেখানোর জন্য ফাংশন
-    function displayMessage(message) {
-        let messageElement = document.createElement("div");
-        messageElement.innerText = message;
-        messageElement.style.position = "fixed";
-        messageElement.style.top = "50%"; // স্ক্রীনের মাঝখানে অবস্থান
-        messageElement.style.left = "50%";
-        messageElement.style.transform = "translate(-50%, -50%)";
-        messageElement.style.background = "rgba(0, 0, 0, 0.7)";
-        messageElement.style.color = "#fff";
-        messageElement.style.padding = "10px";
-        messageElement.style.borderRadius = "5px";
-        messageElement.style.fontSize = "14px";
-        messageElement.style.fontFamily = "Arial, sans-serif";
-        messageElement.style.zIndex = "1001";
-
-        document.body.appendChild(messageElement);
-
-        // 3 সেকেন্ড পর মেসেজ সরিয়ে দেয়া
-        setTimeout(() => {
-            messageElement.style.opacity = "0";
-            setTimeout(() => messageElement.remove(), 300);
-        }, 3000);
-    }
+    
+    // Clean up by revoking the object URL after use
+    window.URL.revokeObjectURL(url);
 })();
-} else {
-  console.log('Access denied: Password mismatch!');
-}
